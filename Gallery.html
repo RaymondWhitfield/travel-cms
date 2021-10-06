@@ -4,26 +4,39 @@
 	<title>Polar Lights | Gallery Page</title>
 	<!-- Linking Bootstrap CSS file -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
 	<style>@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300&display=swap');</style>
 	<style>@import url('https://fonts.googleapis.com/css2?family=Oleo+Script&display=swap');</style>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<!-- Linking Polar Lights project specific CSS file -->
-	<link rel="stylesheet" href="style.css">
+	<link id = "style" rel="stylesheet" href="style.css">
+	<link id="active-stylesheet" href="" rel="stylesheet" type="text/css"/>
 	<!-- Linking Polar Lights project specific JavaScript file -->
-	<script src="script.js"></script>
+	
 </head>
 <body>
 
 	<!-- Navigation bar using Bootstrap's in-built navigation section -->
-	<nav class = "navbar navbar-expand-lg">
-		<div class = "container">
-			<!-- Heading for website -->
+	<nav class = "navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class = "container-fluid">
+			<!-- 
+				* Heading for website 
+			-->
 			<a class = "navbar-brand" href="index.html">POLAR LIGHTS</a>
-
 			<div>
-				<!-- Navigation menu as unordered list, each list item has specific padding using Bootstrap class -->
-				<ul class="navbar-nav">
+				<!-- 
+					* Navigation menu as unordered list, each list item has specific padding using Bootstrap class 
+				-->
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				  </button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav">
 					<li><a href="index.html" class="nav-link"><span>HOME</span></a></li>
+					
+				
 					<li>
 						<div class="dropdownDiv">
 							<button class="dropdownBtn nav-link"><span>CONTINENTS</span>
@@ -40,7 +53,11 @@
 					</li>
 					<li><a href="Gallery.html" class="nav-link"><span>GALLERY</span></a></li>
 					<li><a href="About.html" class="nav-link"><span>ABOUT</span></a></li>
-				</ul>
+					<li><a href="Reviews.html"class="nav-link"><span>REVIEWS</span></a></li>
+					<li><a class="nav-link changeCSS" data-stylesheet="darkMode.css"><span>DARK</span></a></li>
+					<li><a class="nav-link changeCSS" data-stylesheet="style.css"><span>LIGHT</span></a></li>
+					</ul>
+				</div>
 			</div>
 		</div>
 	</nav>
@@ -145,7 +162,7 @@
 	<footer>
 		<!-- Div with top and bottom padding as well as centered text with Bootstrap class -->
 		<div class="pt-4 pb-2 text-center">
-			<h4>About <span><a href="home.html">Polar Lights</a></span></h4>
+			<h4>About <span><a href="index.html">Polar Lights</a></span></h4>
 			<p>Shine like the whole universe is yours.</p>
 			<p>
 				<a href="mailto:rdighe@edgewood.edu"><span>rdighe@edgewood.edu</span></a>
@@ -155,6 +172,6 @@
 			</p>
 		</div>
 	</footer>
-
+	<script src="script.js"></script>
 </body>
 </html>

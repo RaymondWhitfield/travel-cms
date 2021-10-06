@@ -13,6 +13,7 @@
     font-family: 'Arial';
     font-size: 0.6rem;
     letter-spacing: 3px;
+    
   }
   
   /* CSS class for Polar Lights navigation bar header */
@@ -67,7 +68,8 @@
    * The farthest-corner specifies the gradient's ending shape is sized so that it exactly meets the farthest corner of the box from its center
    */
   .blog-section {
-    background-image: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 32%, rgb(0, 87, 168) 100%);
+    background: linear-gradient(90deg, rgba(81,116,156,1) 0%, rgba(134,155,178,1) 55%, rgba(190,195,201,1) 100%);
+    /*background-image: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 32%, rgb(0, 87, 168) 100%);*/
   }
   
   /* CSS class for blog section images */
@@ -107,7 +109,7 @@
    */
   .blog-button:hover {
     background-position: right center;
-    color: #fff;
+    color: #FFF;
     text-decoration: none;
   }
   
@@ -220,9 +222,7 @@
   /* CSS class for body */
   body {
     color: white;
-    /*background: #141e30;*/
-    background: #0f2027;
-    /*background: rgba(3, 2, 34,1);*/
+    background: linear-gradient(to right, #283c86, #45a247);
     font-family: 'Sora', sans-serif;
     font-size: 0.9 rem;
   }
@@ -241,7 +241,8 @@
   
   /* CSS class for page footer */
   footer {
-    background-image: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 32%, rgb(0, 87, 168) 100%);
+    background: linear-gradient(90deg, rgba(81,116,156,1) 0%, rgba(134,155,178,1) 55%, rgba(190,195,201,1) 100%);
+    /*background-image: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 32%, rgb(0, 87, 168) 100%);*/
     /*background: #000000 !important;*/
     opacity: 1;
   }

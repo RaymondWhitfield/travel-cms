@@ -1,16 +1,24 @@
-function toggleDark(){
-	var style = document.getElementById("style");
-	if(style.href.match("style.css")){
-		style.href = "darkMode.css";
-	}
+/* Function to toggle between light and dark themes*/
+var buttons = document.getElementsByClassName("changeCSS");
+var activeSheet = document.getElementById("active-stylesheet");
+
+// Test to see if localStorage already has a value stored
+if (localStorage.getItem("lastActiveSheet")) {
+     activeSheet.setAttribute("href", localStorage.getItem("lastActiveSheet"));
 }
-function toggleLight(){
-	var style = document.getElementById("style");
-	if(style.href.match("darkMode.css")){
-		style.href = "style.css";
-		
-	}
+
+// Assign the event lister to each button
+for (var i = 0; i < buttons.length; i++) {
+  buttons[i].addEventListener("click", switchStyle);  
 }
+
+// Set the #active-stylesheet to be the light or dark stylesheet
+function switchStyle() {
+   var selectedSheet = this.getAttribute("data-stylesheet");
+   activeSheet.setAttribute("href", selectedSheet);
+   localStorage.setItem("lastActiveSheet", selectedSheet);
+}
+
 /* JS file for JavaScript code */
 
 var slideIndex = 0;

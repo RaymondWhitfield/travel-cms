@@ -15,12 +15,15 @@
   letter-spacing: 3px;
 }
 
-/* CSS class for Polar Lights navigation bar header */
+
+/* CSS class for Polar Lights navigation bar header*/
 .navbar-brand {
   font-size: 0.8rem;
   font-weight: 500;
   color: #FFFFFF;
 }
+
+
 
 /* 
  * CSS class for navigation bar links 
@@ -118,7 +121,7 @@
 /* CSS class for instagram section images */
 .insta-image {
   height: 200px;
-  width: 200px;
+  width: 100%;
   display: block;
 }
 

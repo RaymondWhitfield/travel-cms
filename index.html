@@ -7,6 +7,9 @@
 			* Linking Bootstrap CSS file 
 		-->
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
 		<!--
 			* Importing Google fonts
 		-->
@@ -17,30 +20,38 @@
 		<!-- 
 			* Linking Polar Lights project specific CSS file 
 		-->
-		<link id = "style" rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="style.css" type="text/css">
+		<link id="active-stylesheet" href="" rel="stylesheet" type="text/css"/>
+
+		
 		<!-- 
 			* Linking Polar Lights project specific JavaScript file 
 		-->
-	<script src="script.js"></script>
+	
 </head>
 <body>	
 
 	<!-- 
 		* Navigation bar using Bootstrap's in-built navigation section 
 	-->
-	<nav class = "navbar navbar-expand-lg">
-		<div class = "container">
+	<nav class = "navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class = "container-fluid">
 			<!-- 
 				* Heading for website 
 			-->
 			<a class = "navbar-brand" href="index.html">POLAR LIGHTS</a>
-
 			<div>
 				<!-- 
 					* Navigation menu as unordered list, each list item has specific padding using Bootstrap class 
 				-->
-				<ul class="navbar-nav">
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				  </button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav">
 					<li><a href="index.html" class="nav-link"><span>HOME</span></a></li>
+					
+				
 					<li>
 						<div class="dropdownDiv">
 							<button class="dropdownBtn nav-link"><span>CONTINENTS</span>
@@ -57,11 +68,13 @@
 					</li>
 					<li><a href="Gallery.html" class="nav-link"><span>GALLERY</span></a></li>
 					<li><a href="About.html" class="nav-link"><span>ABOUT</span></a></li>
-					<li><a  onclick="toggleDark()" class="nav-link"><span>DARK</span></a></li>
-					<li><a  onclick="toggleLight()" class="nav-link"><span>LIGHT</span></a></li>
-					
-					</div>
-				</ul>
+					<li><a href="Reviews.html"class="nav-link"><span>REVIEWS</span></a></li>
+					<li><a class="nav-link changeCSS" data-stylesheet="darkMode.css"><span>DARK</span></a></li>
+					<li><a class="nav-link changeCSS" data-stylesheet="style.css"><span>LIGHT</span></a></li>
+					<!-- <button class="changeCSS" data-stylesheet="darkMode.css">DARK</button>
+					<button class="changeCSS" data-stylesheet="style.css">LIGHT</button> -->
+					</ul>
+				</div>
 			</div>
 		</div>
 	</nav>
@@ -69,8 +82,8 @@
 	<!-- 
 		* Div for home page video
 	-->
-	<div style=text-align:center>
-		<video max-width="1920" max-height="1080" controls autoplay muted>
+	<div>
+		<video class="img-fluid mx-auto d-block" max-width="1920" max-height="1080" controls autoplay muted>
 			<source src="AuroraAustralis.mp4" type="video/mp4">
 		</video>
 	</div>
@@ -78,7 +91,7 @@
 	<!-- 
 		* Container for main body 
 	-->
-	<div class="container container-body container-main mt-4">
+	<div class="container container-body container-main mx-auto">
 		<div class="body-section text-justify">
 			<h3 class="p-2 mb-3 text-center subTitles" style="font-size: 30px;">Great Adventures Await</h3>
 			<p>For thousands of years, the neon glows of the auroras have captured the curiosity of humans everywhere. In an age where social media followers and likes reign supreme, chasing polar lights has made its way to every other bucket list; they do, nonetheless, make for awe-inspiring Insta-worthy stories and envy-evoking Facebook picture albums! Experiencing the wondrous extravaganza that is polar lights has, also, never been easier thanks to the ever-growing ease of travel and technological advancements. </p>
@@ -103,7 +116,7 @@
     		<!-- 
     			* World mpa with clickable lines 
     		-->
-    		<img src="img/worldmap.png " style="width: auto;" alt="Clickable world map" usemap="#worldmap">
+    		<img class="img-fluid mx-auto d-block" src="img/worldmap.png " style="width: auto;" alt="Clickable world map" usemap="#worldmap">
 			<!-- 
 				* Map areas for each continent 
 			-->
@@ -198,53 +211,53 @@
 	<!-- 
 		* Container for Instagram links
 	-->
-	<div class="container mb-5 pb-4">
+	<div class="row">
 		<!-- 
 			* Div to center the content using Bootstrap class 
 		-->
-		<div class="row justify-content-center">
+		<div class="d-flex justify-content-center">
 			<!-- 
 				* Div for instagram link with top and right margin using Bootstrap class 
 			-->
-			<div class="mt-2 mr-2">
+			<div class="mr-2 pr-2">
 				<a href="https://www.instagram.com/auroraborealisobservatory/?hl=en" target="_blank">
-					<img src="img/Instagram/InstaNorway.png" class="insta-image" alt="Aurora Borealis Observatory at Mt. Krumpet, Norway">
+					<img  src="img/Instagram/InstaNorway.png" class="insta-image img-fluid" alt="Aurora Borealis Observatory at Mt. Krumpet, Norway">
 					<div class="middle"><i class="fa fa-instagram instaIcon"></i></div>
 				</a>
 			</div>
 			<!-- 
 				* Div for instagram link with top and right margin using Bootstrap class 
 			-->
-			<div class="mt-2 mr-2">
+			<div class="mr-2 pr-2">
 				<a href="https://www.instagram.com/explore/tags/northernlightsiceland/?hl=en" target="_blank">
-					<img src="img/Instagram/InstaIceland.png" class="insta-image" alt="Northern Lights at Studlagil Canyon, Iceland">
+					<img  src="img/Instagram/InstaIceland.png" class="insta-image img-fluid" alt="Northern Lights at Studlagil Canyon, Iceland">
 					<div class="middle"><i class="fa fa-instagram instaIcon"></i></div>
 				</a>
 			</div>
 			<!-- 
 				* Div for instagram link with top and right margin using Bootstrap class 
 			-->
-			<div class="mt-2 mr-2">
+			<div class="mr-2 pr-2">
 				<a href="https://www.instagram.com/p/BjBdiQgHr_J/" target="_blank">
-					<img src="img/Instagram/InstaAntarctica.png" class="insta-image" alt=" Southern Lights at Lemaire Channel, Antarctica">
+					<img  src="img/Instagram/InstaAntarctica.png" class="insta-image img-fluid" alt=" Southern Lights at Lemaire Channel, Antarctica">
 					<div class="middle"><i class="fa fa-instagram instaIcon"></i></div>
 				</a>
 			</div>
 			<!-- 
 				* Div for instagram link with top and right margin using Bootstrap class 
 			-->
-			<div class="mt-2 mr-2">
+			<div class="mr-2 pr-2">
 				<a href="https://www.instagram.com/p/B4MO7yonFaf/" target="_blank">
-					<img src="img/Instagram/InstaUSA.png" class="insta-image" alt="Northern Lights at Fairbanks, Alaska">
+					<img  src="img/Instagram/InstaUSA.png" class="insta-image img-fluid" alt="Northern Lights at Fairbanks, Alaska">
 					<div class="middle"><i class="fa fa-instagram instaIcon"></i></div>
 				</a>
 			</div>
 			<!-- 
 				* Div for instagram link with top and right margin using Bootstrap class 
 			-->
-			<div class="mt-2 mr-2">
+			<div class="mr-2 pr-2">
 				<a href="https://www.instagram.com/p/BUpyGYMA8_A/?hl=en" target="_blank">
-					<img src="img/Instagram/InstaNZ.png" class="insta-image" alt="Southern Lights at Dunedin, NZ">
+					<img  src="img/Instagram/InstaNZ.png" class="insta-image img-fluid" alt="Southern Lights at Dunedin, NZ">
 					<div class="middle"><i class="fa fa-instagram instaIcon"></i></div>
 				</a>
 			</div>
@@ -259,7 +272,7 @@
 		* Div with top and bottom padding as well as centered text with Bootstrap class 
 		-->
 		<div class="pt-4 pb-2 text-center">
-			<h4>About <span><a href="home.html">Polar Lights</a></span></h4>
+			<h4>About <span><a href="index.html">Polar Lights</a></span></h4>
 			<p>Like we're made of starlight!</p>
 			<p>
 				<a href="mailto:rdighe@edgewood.edu"><span>rdighe@edgewood.edu</span></a>
@@ -272,6 +285,6 @@
 			</p>
 		</div>
 	</footer>
-
+	<script src="script.js"></script>
 </body>
 </html>
