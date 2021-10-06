@@ -1,4 +1,7 @@
 # A Travel CMS Project by Radnee and Ray for CS 480
 
-## Be aware this version contains the dark mode stylesheet and "dark" and "light" navbar links solely on the home.html page, not completely implemented as of 9/22/21.
-## If you like, you can push the original version onto the master branch and I can later create a branch with the dark mode features that we can merge later if needed.
+## Be aware this branch2 contains the dark mode stylesheet and "dark" and "light" navbar links which has been implemented.
+10/5/21
+Updated Navbar to be more mobile friendly, hopefully.
+Created Reviews.html, more work to be done.
+Fully implemented a dark/light mode feature.
