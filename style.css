@@ -1,0 +1,484 @@
+/* 
+ * CSS class for navigation bar 
+ * Using the z-index property to specify that the navigation bar is stacked over all other elements (including pictures)
+ */
+.navbar {
+  background: #000000 !important;
+  opacity: 0.7;
+  position : fixed;
+  top : 0;
+  left : 0;
+  width: 100%;
+  z-index: 1;
+  font-family: 'Arial';
+  font-size: 0.6rem;
+  letter-spacing: 3px;
+}
+
+
+/* CSS class for Polar Lights navigation bar header*/
+.navbar-brand {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #FFFFFF;
+}
+
+
+
+/* 
+ * CSS class for navigation bar links 
+ * Adding the cursor property to have a finger pointer cursor
+ */
+.navbar a, .navbar button, .navbar span {
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+/* CSS class for container body */
+.container-body {
+  margin-top : 90px;
+}
+
+/* CSS class for container main section */
+.container-main {
+  width: 60%;
+}
+
+/* CSS class for contact information form */
+.container-contact {
+  margin-bottom: 30px;
+}
+
+/* 
+ * CSS class for contact information form with rounded corners 
+ * Using the radial-gradient() to creates a background transition between two colors that radiate from an origin
+ * The farthest-corner specifies the gradient's ending shape is sized so that it exactly meets the farthest corner of the box from its center
+ */
+.contact-form-background {
+  border-radius: 5px;
+  background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(231,254,197,1) 0%, rgba(145,172,251,1) 90% );
+}
+
+/* CSS class for body section */
+.body-section {
+  padding: 15px;
+}
+
+/* 
+ * CSS class for body section 
+ * Using the radial-gradient() to creates a background transition between two colors that radiate from an origin
+ * The farthest-corner specifies the gradient's ending shape is sized so that it exactly meets the farthest corner of the box from its center
+ */
+.blog-section {
+  background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(250,255,240,1) 0%, rgba(226,232,251,1) 90% );
+}
+
+/* CSS class for blog section images */
+.blog-image {
+  width: 100%;
+  height: 300px;
+  display: block;
+}
+
+/* CSS class for blog section images hover pseudoclass to add opacity */
+.blog-image:hover {
+  opacity: 0.8;
+}
+
+/* CSS class for blog section header */
+.blog-entry h5 {
+  margin-top: 15px;
+}
+
+/* 
+ * CSS class for buttons in the blog section
+ * Add linear gradient to the button with background size set to 200%
+ */
+.blog-button {
+  background-image: linear-gradient(to right, #c2e59c 0%, #64b3f4  51%, #c2e59c  100%);
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: black; 
+  font-size: 0.75rem;           
+  box-shadow: 0 0 20px #eee;
+  display: block;
+}
+
+/* 
+ * CSS class for blog section button hover pseudoclass to change the direction of the linear gradient
+ */
+.blog-button:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* CSS class for blog title to set font family */
+.blogTitle {
+  font-family: 'Oleo Script', cursive;
+}
+
+/* CSS class for instagram section images */
+.insta-image {
+  height: 200px;
+  width: 100%;
+  display: block;
+}
+
+/* CSS class for instagram icon */
+.instaIcon {
+  color: lightgray;
+  font-size: 40px;
+}
+
+/* CSS class to center the instagram icon to the center of the instagram image */
+.middle {
+  opacity: 0.9;
+  position: relative;
+  top: -40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+}
+
+/* CSS class for instagram images hover pseudoclass to add opacity */
+.insta-image:hover {
+  opacity: 0.8;
+}
+
+/* CSS class for wrapper div for gallery images to set margin and paddings */
+.gallery-div {
+  margin-top: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+/* CSS class for parent div for gallery image */
+.parent {
+  width: 100%;
+  height: 300px;
+  border: 1px black solid;
+  overflow: hidden;
+  position: relative;
+  float: left;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* CSS class for child div for gallery image to allow zoom in effect */
+.child {
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: all 0.9s;
+}
+
+/* CSS class for gallery images */
+.gallery-image {
+  background-color: #FFFFFF;
+  width: 100%;
+  height: 300px;
+  display: block;
+}
+
+/* CSS class for gallery image hover pseudoclass to add opacity and change cursor type */
+.gallery-image:hover {
+  opacity: 0.8;
+  cursor: zoom-in;
+}
+
+/* CSS class to add zoom in effect in parent div hover */
+.parent:hover .child {
+  transform: scale(1.7);
+  cursor: zoom-in;
+}
+
+/* CSS class for gallery page content to have 3 columns */
+.gallery {
+  column-count: 3;
+  column-width: 33%; 
+}
+
+/* CSS to make gallery page content responsive to screen size */
+@media (max-width: 450px) {
+  .gallery {
+    column-count: 1;
+    column-width: 100%;
+  }
+}
+
+/* 
+* Overriding Bootstrap's CSS class to use the font size defined on the page using the inherit value in the font size property
+* This is done to keep the font size consistent with the rest of the page (since the default Bootstrap font size was larger) 
+*/
+.form-control {
+  font-size: inherit;
+}
+
+/* CSS class for body */
+body {
+  color: #999999;
+  font-family: 'Sora', sans-serif;
+  font-size: 0.8rem;
+}
+
+/* CSS class for headers */
+h1, h2, h3, h4, h5 {
+  color: #303030;
+}
+
+/* CSS class for paragraph */
+p {
+  font-family: 'Sora', sans-serif;
+  font-size: 0.8rem;
+  line-height: 2;
+}
+
+/* CSS class for page footer */
+footer {
+  background: #000000 !important;
+  opacity: 0.8;
+}
+
+/* CSS class for page footer heading */
+footer h4 {
+  color: #FFFFFF;
+  font-family: 'Oleo Script', cursive;
+  font-size: 1.5rem;
+}
+
+/* CSS class for page footer anchor tag */
+footer h4 span a, 
+footer h4 span a:hover {
+  background: radial-gradient( circle farthest-corner at 10% 20%,  rgba(231,254,197,1) 0%, rgba(145,172,251,1) 90% );
+  text-decoration: none;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* CSS class for page footer paragraph tag */
+footer p, 
+footer a span{
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.8rem;
+}
+
+/* 
+* CSS class for modal pop-up display 
+* The z-index property is used here to stack the modal pop-up over all other elements of the page
+* The scroll bar will only be shown if the content is long enough (overflow property)
+* Setting the display property to none so that the modal only pops up when it is invoked through JavaScript
+*/
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(11,11,11);
+  background-color: rgba(11,11,11,0.95);
+  overflow: auto;
+}
+
+/* CSS class for modal image */
+.modalImage {
+  margin: auto;
+  display: block;
+  max-width: 850px;
+  max-height: 600px;
+  object-fit: scale-down;
+}
+
+/* CSS class for modal image caption */
+#modalCaption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+/* CSS class to add animation to the modal image and modal caption */
+.modalImage, #modalCaption {
+  animation-name: zoom;
+  animation-duration: 0.8s;
+}
+
+/* Zoom animation CSS class to scale the modal image and modal caption */
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)} 
+  to {-webkit-transform:scale(1)}
+}
+
+/* Zoom animation CSS class to scale the modal image and modal caption */
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+
+/* CSS class for close button on the modal pop-up */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #F1F1F1;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+/* 
+* CSS class for the close button using the hover pseudoclass
+* The color of the close icon is changed to white when it is hovered over
+*/
+.close:hover {
+  color: #FFFFFF;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* CSS class for previous and next buttons on the modal display */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* CSS class for the next button on the modal display to position the button right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* CSS class for previous and next buttons hover pseudoclass to add background color */
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  text-decoration: none;
+}
+
+/* CSS class for page subtitles to add font family and background radial gradient */
+.subTitles {
+  border-radius: 5px;
+  font-family: 'Oleo Script', cursive;
+  background-image: radial-gradient(circle farthest-corner at 10% 20%,  rgba(231,254,197,1) 0%, rgba(145,172,251,1) 90%);
+}
+
+/* CSS class for page subtitles font size */
+.subTitlesFont {
+  font-size: 20px;
+}
+
+/* CSS class to set display property to block to start elements on a new line and take up the entire width */
+.displayBlock {
+  display: block;
+}
+
+/* CSS class to set display property to none */
+.displayNone {
+  display: none;
+}
+
+/* CSS class to align text to center */
+.text-center {
+  text-align: center;
+}
+
+/* CSS class for read more/read less span */
+.readMoreLess {
+  display: block;
+  color: #AD4D03;
+  font-weight: bold;
+}
+
+/* CSS class for read more/read less hover pseudoclass to add text decoration and cursor type */
+.readMoreLess:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* CSS class for images on continent page */
+.continent-image {
+  width: 100%;
+  height: 100%;
+}
+
+/* CSS class for portrait style images on continent page */
+.portrait {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+/* 
+* CSS class for landscape style images on continent page 
+* This allows fitting images with different dimensions in set containers
+*/
+.landscape {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* CSS class for hover pseudoclass to add opacity and change cursor type on the Continents pages */
+.landscape:hover, .portrait:hover {
+  opacity: 0.8;
+  cursor: zoom-in;
+}
+
+/* CSS class for dropdown wrapper div and button to remove border and outline of the button */
+.dropdownDiv .dropdownBtn {
+  border: none;
+  outline: none;
+  color: white;
+  background-color: inherit;
+  letter-spacing: 3px;
+}
+
+/* 
+ * CSS class for dropdown content div 
+ * The display property is set to none to that its hidden
+ */
+.dropdown-content {
+  display: none;
+  padding-top: 0.5rem;
+  position: absolute;
+  background: #000000 !important;
+  z-index: 1;
+}
+
+/* CSS class to add padding for anchor tags within the dropdown content div */
+.dropdown-content a {
+  padding: 12px 16px;
+}
+
+/* CSS class to add background color on hover for anchor tags within the dropdown content Div */
+.dropdown-content a:hover {
+  background-color: #444;
+}
+
+/* 
+ * CSS class to make 
+ * Dropdown content div is made visible by setting display property to block on hover 
+ * When the dropdown wrapper div is hovered on, the dropdown appears
+ */ 
+.dropdownDiv:hover .dropdown-content {
+  display: block;
+}
