@@ -94,8 +94,9 @@
 						</div>
 					</li>
 					<li><a href="Gallery.html" class="nav-link"><span>GALLERY</span></a></li>
-					<li><a href="About.html" class="nav-link"><span>ABOUT</span></a></li>
+                    <li><a href="Search.php" class="nav-link"><span>SEARCH</span></a></li>
                     <li><a href="Reviews.html"class="nav-link"><span>REVIEWS</span></a></li>
+                    <li><a href="About.html" class="nav-link"><span>ABOUT</span></a></li>
 					<li><a class="nav-link changeCSS" data-stylesheet="darkMode.css"><span>DARK</span></a></li>
 					<li><a class="nav-link changeCSS" data-stylesheet="style.css"><span>LIGHT</span></a></li>
 					</ul>
@@ -103,10 +104,10 @@
 			</div>
 		</div>
 	</nav>
+    <div class="container container-body container-main mb-5">
+        <!--User Reviews Form-->
 
-    <!--User Reviews Form-->
-
-        <form class="mt-5 ml-1"id="reviewForm">
+        <form class="mt-5"id="reviewForm">
 
             <!--Div that contains star ratings with values 1 - 5 -->
 
@@ -131,7 +132,7 @@
 
             <label class="mb-1 ml-3"><h5>Which trip do you want to review?</h5></label>
             <div class="mb-3 ml-3" id="tripChoice">
-                <select name="trips" id="trips">
+                <select class="custom-select" name="trips" id="trips">
                     <optgroup label="European Trips">
                         <option>Iceland</option>
                         <option>Norway</option>
@@ -175,7 +176,7 @@
                 <textarea class="form-control" id="comment" rows="5"></textarea>
             </div>
 
-            <div class="d-grid gap-2">
+            <div class="btn-group-justified">
                 <input class="btn btn-primary" type="submit" value="Submit">
                 <input class="btn btn-primary" type="reset" value="Reset">
               </div>
@@ -185,12 +186,55 @@
         <!--Area to display user submitted reviews,
             fetch data from database to display dynamically-->
         <div>
-            <h1>Reviews will be dynamically displayed here, below the form.</h1>
-            <h2>Also, we could provide users a way to search or filter reviews
-                on criteria like stars, trip, date, etc.
-            </h2>
-            <h2>The landing page could run a slideshow of all these reviews</h2>
+            
 
+        </div>
+    </div>
+    <div class="container mt-5 mb-5">
+        <!-- <div>
+            <h3>Reviews will be dynamically displayed here, below the form.</h3>
+        </div>
+        <div>
+            <h3>Also, we could provide users a way to search or filter reviews
+                on criteria like stars, trip, date, etc.
+            </h3>
+        </div>
+        <div>
+            <h3>The landing page could run a slideshow of all these reviews</h3>
+        </div> -->
+
+        <div class="card-deck">
+            <div class="card">
+              <img class="card-img-top" src="img/Europe/Iceland1.jpg" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Our Trip to Iceland</h5>
+                <p class="card-text">This is what we thought about Iceland and the polar lights.</p>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">Last updated 3 mins ago</small>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="img/Antarctica/Antarctica1.jpg" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Antartica is beautiful this time of year</h5>
+                <p class="card-text">We loved our trip to Antartica. Don't forget to pack several layers of clothing. It was a truly unforgettable experience.</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Last updated 3 mins ago</small>
+                  </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="img//SouthAmerica/Argentina1.jpg" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Argentina is a magical place to see the auroras.</h5>
+                <p class="card-text">We loved our trip to Argentina. Can't say enough about our experience with Polar Lights booking agency.</p>              
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Last updated 3 mins ago</small>
+                  </div>
+            </div>
+          </div>
         </div>
 
         <!-- 
