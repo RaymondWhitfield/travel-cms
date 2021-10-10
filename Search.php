@@ -76,7 +76,7 @@ if ($conn -> connect_error) {
 				<select class="custom-select mr-md-2 form-control" id="destination" title="Select a destination to search package">
 					<option value="" disabled selected>Destination</option>
 					<?php 
-					$sql = "SELECT * FROM DESTINATION
+					$sql = "SELECT * FROM destination
 							ORDER BY NAME";
 					$result = $conn -> query($sql);
 					if ($result -> num_rows > 0) {
@@ -93,7 +93,7 @@ if ($conn -> connect_error) {
 				<select class="custom-select mr-sm-2 form-control" id="theme" title="Select a theme to search package">
 					<option value="" disabled selected>Theme</option>
 					<?php 
-					$sql = "SELECT * FROM THEME
+					$sql = "SELECT * FROM theme
 							ORDER BY NAME";
 					$result = $conn -> query($sql);
 					if ($result -> num_rows > 0) {
