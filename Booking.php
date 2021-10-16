@@ -33,40 +33,9 @@ if ($conn -> connect_error) {
 <body>
 
 	<!-- Navigation bar using Bootstrap's in-built navigation section -->
-	<nav class = "navbar navbar-expand-lg">
-		<div class = "container">
-			<!-- Heading for website -->
-			<a class = "navbar-brand" href="index.html">POLAR LIGHTS</a>
-
-			<div>
-				<!-- Navigation menu as unordered list, each list item has specific padding using Bootstrap class -->
-				<ul class="navbar-nav">
-					<li><a href="index.html" class="nav-link"><span>HOME</span></a></li>
-					<li>
-						<div class="dropdownDiv">
-							<button class="dropdownBtn nav-link"><span>CONTINENTS</span>
-								<i class="fa fa-caret-down"></i>
-							</button>
-							<div class="dropdown-content">
-								<a href="Antarctica.html" class="dropdown-item"><span>ANTARCTICA</span></a>
-								<a href="Europe.html" class="dropdown-item"><span>EUROPE</span></a>
-								<a href="NorthAmerica.html" class="dropdown-item"><span>NORTH AMERICA</span></a>
-								<a href="Oceania.html" class="dropdown-item"><span>OCEANIA</span></a>
-								<a href="SouthAmerica.html" class="dropdown-item"><span>SOUTH AMERICA</span></a>
-							</div>
-						</div>
-					</li>
-					<li><a href="Gallery.html" class="nav-link"><span>GALLERY</span></a></li>
-					<li><a href="Search.php" class="nav-link"><span>SEARCH</span></a></li>
-					<li><a href="Reviews.html"class="nav-link"><span>REVIEWS</span></a></li>
-					<li><a href="About.html" class="nav-link"><span>ABOUT</span></a></li>
-					<li><a class="nav-link changeCSS" data-stylesheet="darkMode.css"><span>DARK</span></a></li>
-					<li><a class="nav-link changeCSS" data-stylesheet="style.css"><span>LIGHT</span></a></li>
-
-				</ul>
-			</div>
-		</div>
-	</nav>
+	<?php
+		include_once "navbar.php";
+	?>
 
 	<!-- Container for main body -->
 	<div class="container container-body container-main mb-5">
@@ -176,19 +145,10 @@ if ($conn -> connect_error) {
 	</div>
 
 	<!-- Page footer -->
-	<footer>
-		<!-- Div with top and bottom padding as well as centered text with Bootstrap class -->
-		<div class="pt-4 pb-2 text-center">
-			<h4>About <span><a href="index.html">Polar Lights</a></span></h4>
-			<p>Shine like the whole universe is yours.</p>
-			<p>
-				<a href="mailto:rdighe@edgewood.edu"><span>rdighe@edgewood.edu</span></a>
-			</p>
-			<p>
-				Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Created by Radnee Dighe
-			</p>
-		</div>
-	</footer>
+	<?php
+		include_once "footer.php";
+	?>
+	
 	<!-- Linking Polar Lights project specific JavaScript file -->
 	<script src="script.js"></script>
 </body>
