@@ -134,27 +134,40 @@
 					<table>
 						<?php 
 							if (($destinationId > 0) && ($themeId > 0)) {
-								$sql = "SELECT * FROM package
+								$sql = "SELECT PackageID, Description, MonthName(Date(StartDate)) AS StartMonth, Day(Date(StartDate)) AS StartDt, MonthName(Date(EndDate)) AS EndMonth, Day(Date(EndDate)) AS EndDt FROM package
 										WHERE DestinationID = '$destinationId' AND 
 											  ThemeID = '$themeId'";
 							}
 							else if ($destinationId > 0) {
-								$sql = "SELECT * FROM package
+								$sql = "SELECT PackageID, Description, MonthName(Date(StartDate)) AS StartMonth, Day(Date(StartDate)) AS StartDt, MonthName(Date(EndDate)) AS EndMonth, Day(Date(EndDate)) AS EndDt FROM package
 										WHERE DestinationID = '$destinationId'";
 							}
 							else { 
-								$sql = "SELECT * FROM package
+								$sql = "SELECT PackageID, Description, MonthName(Date(StartDate)) AS StartMonth, Day(Date(StartDate)) AS StartDt, MonthName(Date(EndDate)) AS EndMonth, Day(Date(EndDate)) AS EndDt FROM package
 										WHERE ThemeID = '$themeId'";
 							}
 
 							$result = $conn -> query($sql);
 							if ($result -> num_rows > 0) {
+								echo "<tr class='pb-2'>";
+								echo "<th class='displayNone'></th>";
+								echo "<th>Description</th>";
+								echo "<th style='width: 100px;'>Start Date</th>";
+								echo "<th style='width: 100px;'>End Date</th>";
+								echo "<th></th>";
+								echo "</tr>";
 								while($row = $result -> fetch_assoc()) {
 									$Id = $row["PackageID"];
 									$desc = $row["Description"];
+									$startMonth = $row["StartMonth"];
+									$endMonth = $row["EndMonth"];
+									$startDt = $row["StartDt"];
+									$endDt = $row["EndDt"];
 									echo "<tr>";
 									echo "<td class='displayNone'>$Id</td>";
 									echo "<td class='pb-2'>$desc</td>";
+									echo "<td>$startMonth" . "-" . "$startDt</td>";
+									echo "<td>$endMonth" . "-" . "$endDt</td>";
 									echo "<td style='width: 100px; valigh:top'><a href='#' onclick='launchBooking()'>Booking link</a></td>";
 									echo "</tr>";
 								}
