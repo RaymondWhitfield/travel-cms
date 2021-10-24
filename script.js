@@ -1,58 +1,38 @@
 function searchPackages() {
-
 	var theme = $("#theme");
-
 	var destination = $("#destination");
 
-
-
 	var themeValue = theme.val();
-
 	var themeText = theme.children(":selected").text();
 
-
-
 	var destinationValue = destination.val();
-
 	var destinationText = destination.children(":selected").text();
 
-
-
 	if (!destinationValue && !themeValue)
-
 	{
+		theme.addClass("is-invalid");
+		destination.addClass("is-invalid");
 
-				theme.addClass("is-invalid");
-
-				destination.addClass("is-invalid");
-
-
-
-				setTimeout(function () {
-
-							theme.removeClass('is-invalid');
-
-							destination.removeClass("is-invalid");
-
-				}, 2000);
-
-			   
-
-				return;
-
+		setTimeout(function () {
+			theme.removeClass('is-invalid');
+			destination.removeClass("is-invalid");
+		}, 2000);
+		
+		return;
 	}
+	
 	var contentDiv = $("#packageDiv");
-
 	var content = "<p>Display packages for " + destinationValue + "-" + destinationText + " and/or " + themeValue + "-" + themeText + " from the database tables</p>";
-
 	contentDiv.append(content);
-
 	content = "<a href='Booking.php'>Booking link</a>";
-
 	contentDiv.append(content);
-
 	contentDiv.css("display", "block");
+}
 
+function launchBooking() {
+	var packageId = event.target.parentNode.parentNode.cells[0].innerHTML;
+	$("#package").val(packageId);
+	$("#bookPackage").submit();
 }
 
 /* Function to toggle between light and dark themes*/
