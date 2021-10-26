@@ -119,7 +119,6 @@
 				</div>
 				<div class="form-group col-md-4">
 					<input type="submit" value="Search Packages" name="Submit" class="btn btn-outline-primary btn-sm form-control">
-					<!-- <button id="searchPackage" type="" class="btn btn-outline-primary btn-sm form-control" onclick="searchPackages()">Search Packages</button> -->
 				</div>
 			</div>
 		</form>
