@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 10, 2021 at 08:51 PM
+-- Generation Time: Oct 24, 2021 at 09:19 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.3.26
 
@@ -20,6 +20,44 @@ SET time_zone = "+00:00";
 --
 -- Database: `polarlights`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `booking`
+--
+
+CREATE TABLE `booking` (
+  `BookingID` int(11) NOT NULL,
+  `PackageID` int(11) NOT NULL,
+  `CustomerID` int(11) NOT NULL,
+  `FromDate` date NOT NULL,
+  `ToDate` date NOT NULL,
+  `NumOfTravellers` int(11) NOT NULL,
+  `FirstName` varchar(50) NOT NULL,
+  `LastName` varchar(50) NOT NULL,
+  `Address` varchar(100) NOT NULL,
+  `City` varchar(50) NOT NULL,
+  `State` varchar(2) NOT NULL,
+  `Zip` int(11) NOT NULL,
+  `Email` varchar(50) NOT NULL,
+  `Phone` varchar(12) NOT NULL,
+  `CreditCard` varchar(20) NOT NULL,
+  `ExpDate` varchar(5) NOT NULL,
+  `CVVNumber` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `customer`
+--
+
+CREATE TABLE `customer` (
+  `CustomerID` int(11) NOT NULL,
+  `Email` varchar(50) NOT NULL,
+  `Password` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -51,6 +89,48 @@ INSERT INTO `destination` (`DestinationID`, `Name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `package`
+--
+
+CREATE TABLE `package` (
+  `PackageID` int(11) NOT NULL,
+  `DestinationID` int(11) NOT NULL,
+  `ThemeID` int(11) NOT NULL,
+  `StartDate` date NOT NULL,
+  `EndDate` date NOT NULL,
+  `Description` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `package`
+--
+
+INSERT INTO `package` (`PackageID`, `DestinationID`, `ThemeID`, `StartDate`, `EndDate`, `Description`) VALUES
+(1, 2, 3, '2021-06-01', '2021-08-31', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'),
+(2, 2, 4, '2021-07-01', '2021-11-30', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'),
+(3, 7, 3, '2021-12-01', '2022-03-31', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'),
+(4, 5, 4, '2022-01-01', '2022-04-30', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `review`
+--
+
+CREATE TABLE `review` (
+  `ReviewID` int(11) NOT NULL,
+  `BookingID` int(11) NOT NULL,
+  `FirstName` varchar(50) NOT NULL,
+  `LastName` varchar(50) NOT NULL,
+  `Email` varchar(50) NOT NULL,
+  `ReviewDate` date NOT NULL,
+  `Rating` int(11) NOT NULL,
+  `Comment` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `theme`
 --
 
@@ -74,10 +154,40 @@ INSERT INTO `theme` (`ThemeID`, `Name`) VALUES
 --
 
 --
+-- Indexes for table `booking`
+--
+ALTER TABLE `booking`
+  ADD PRIMARY KEY (`BookingID`),
+  ADD KEY `CustomerID` (`CustomerID`),
+  ADD KEY `PackageID` (`PackageID`);
+
+--
+-- Indexes for table `customer`
+--
+ALTER TABLE `customer`
+  ADD PRIMARY KEY (`CustomerID`),
+  ADD UNIQUE KEY `Email` (`Email`);
+
+--
 -- Indexes for table `destination`
 --
 ALTER TABLE `destination`
   ADD PRIMARY KEY (`DestinationID`);
+
+--
+-- Indexes for table `package`
+--
+ALTER TABLE `package`
+  ADD PRIMARY KEY (`PackageID`),
+  ADD KEY `DestinationID` (`DestinationID`),
+  ADD KEY `ThemeID` (`ThemeID`);
+
+--
+-- Indexes for table `review`
+--
+ALTER TABLE `review`
+  ADD PRIMARY KEY (`ReviewID`),
+  ADD KEY `BookingID` (`BookingID`);
 
 --
 -- Indexes for table `theme`
@@ -90,16 +200,64 @@ ALTER TABLE `theme`
 --
 
 --
+-- AUTO_INCREMENT for table `booking`
+--
+ALTER TABLE `booking`
+  MODIFY `BookingID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `customer`
+--
+ALTER TABLE `customer`
+  MODIFY `CustomerID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `destination`
 --
 ALTER TABLE `destination`
   MODIFY `DestinationID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
+-- AUTO_INCREMENT for table `package`
+--
+ALTER TABLE `package`
+  MODIFY `PackageID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `review`
+--
+ALTER TABLE `review`
+  MODIFY `ReviewID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `theme`
 --
 ALTER TABLE `theme`
   MODIFY `ThemeID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `booking`
+--
+ALTER TABLE `booking`
+  ADD CONSTRAINT `booking_ibfk_1` FOREIGN KEY (`CustomerID`) REFERENCES `customer` (`CustomerID`),
+  ADD CONSTRAINT `booking_ibfk_2` FOREIGN KEY (`PackageID`) REFERENCES `package` (`PackageID`);
+
+--
+-- Constraints for table `package`
+--
+ALTER TABLE `package`
+  ADD CONSTRAINT `package_ibfk_1` FOREIGN KEY (`DestinationID`) REFERENCES `destination` (`DestinationID`),
+  ADD CONSTRAINT `package_ibfk_2` FOREIGN KEY (`ThemeID`) REFERENCES `theme` (`ThemeID`);
+
+--
+-- Constraints for table `review`
+--
+ALTER TABLE `review`
+  ADD CONSTRAINT `review_ibfk_1` FOREIGN KEY (`BookingID`) REFERENCES `booking` (`BookingID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
