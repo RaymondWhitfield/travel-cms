@@ -1,4 +1,6 @@
-
+<?php
+session_start();
+?>
 <!-- 
 		* Navigation bar using Bootstrap's in-built navigation section 
 	-->
@@ -8,6 +10,13 @@
 				* Heading for website 
 			-->
 			<a class = "navbar-brand" href="index.php">POLAR LIGHTS</a>
+			<?php
+				
+				if(isset($_SESSION["Email"])){
+					$email = $_SESSION["Email"];
+					echo "<li>Welcome back, $email </li>";
+				}
+			?>
 			<div>
 				<!-- 
 					* Navigation menu as unordered list, each list item has specific padding using Bootstrap class 
@@ -38,6 +47,16 @@
 					<li><a href="Search.php" class="nav-link"><span>SEARCH</span></a></li>
 					<li><a href="Reviews.php"class="nav-link"><span>REVIEWS</span></a></li>
 					<li><a href="About.php" class="nav-link"><span>ABOUT</span></a></li>
+					<?php
+						if(isset($_SESSION["Email"])){
+							echo "<li><a href='user.php' class='nav-link'><span>ACCOUNT</span></a></li>";
+							echo "<li><a href='logout.php' class='nav-link'><span>LOGOUT</span></a></li>";
+						}
+						else{
+							echo "<li><a href='register.php' class='nav-link'><span>REGISTER</span></a></li>";
+							echo "<li><a href='login.php' class='nav-link'><span>LOGIN</span></a></li>";
+						}
+					?>
 					<li><a class="nav-link changeCSS" data-stylesheet="darkMode.css"><span>DARK</span></a></li>
 					<li><a class="nav-link changeCSS" data-stylesheet="style.css"><span>LIGHT</span></a></li>
 					</ul>
