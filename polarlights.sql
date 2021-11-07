@@ -2,10 +2,10 @@
 -- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Oct 24, 2021 at 09:19 PM
+-- Host: 127.0.0.1
+-- Generation Time: Nov 07, 2021 at 09:45 PM
 -- Server version: 10.4.17-MariaDB
--- PHP Version: 7.3.26
+-- PHP Version: 8.0.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -56,8 +56,19 @@ CREATE TABLE `booking` (
 CREATE TABLE `customer` (
   `CustomerID` int(11) NOT NULL,
   `Email` varchar(50) NOT NULL,
-  `Password` varchar(50) NOT NULL
+  `Password` varchar(60) NOT NULL,
+  `FirstName` varchar(60) NOT NULL,
+  `LastName` varchar(60) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `customer`
+--
+
+INSERT INTO `customer` (`CustomerID`, `Email`, `Password`, `FirstName`, `LastName`) VALUES
+(10, 'test10@myemail.com', '$2y$10$xMEEAycxLgiljonZvl/odO4NFn5l7cuLNdl3V.j70fE.CT/Jkk/62', '', ''),
+(11, 'Test', '$2y$10$1ppC7WWpY9ukbzM1XaTJH.ekYdupKJ.shP.IMEqA7n9JZMrHFrly6', '', ''),
+(14, 'test12@myemail.com', '$2y$10$bLyro3KuHEgC1fST0hq/eOs3Y6EQ1PyRKo/9Rt2c4oXcAfupgUUmK', 'Test', 'Dummy');
 
 -- --------------------------------------------------------
 
@@ -209,7 +220,7 @@ ALTER TABLE `booking`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `CustomerID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `CustomerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `destination`
