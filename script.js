@@ -42,11 +42,13 @@ var activeSheet = document.getElementById("active-stylesheet");
 // Test to see if localStorage already has a value stored
 if (localStorage.getItem("lastActiveSheet")) {
      activeSheet.setAttribute("href", localStorage.getItem("lastActiveSheet"));
+	 
 }
 
 // Assign the event lister to each button
 for (var i = 0; i < buttons.length; i++) {
-  buttons[i].addEventListener("click", switchStyle);  
+  buttons[i].addEventListener("click", switchStyle);
+	
 }
 
 // Set the #active-stylesheet to be the light or dark stylesheet

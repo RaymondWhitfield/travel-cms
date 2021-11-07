@@ -116,22 +116,22 @@
             </div>
 
             
-            <div class="mb-3 ml-3">
+            <!-- <div class="mb-3 ml-3">
                 <label for="firstName" class="form-label">First Name</label>
                 <input type="text" class="form-control" id="firstName" placeholder="First Name">
             </div>
             <div class="mb-3 ml-3">
                 <label for="lastName" class="form-label">Last Name</label>
                 <input type="text" class="form-control" id="lastName" placeholder="Last Name">
-            </div>
-            <div class="mb-3 ml-3">
+            </div> -->
+            <!-- <div class="mb-3 ml-3">
                 <label for="email" class="form-label">Email Address</label>
                 <input type="email" class="form-control" id="email" placeholder="name@email.com">
-            </div>
-            <div class="mb-3 ml-3">
+            </div> -->
+            <!-- <div class="mb-3 ml-3">
                 <label for="date" class="form-label">Date of Trip</label>
                 <input type="date" class="form-control" id="date" placeholder="Date of Trip">
-            </div>
+            </div> -->
             <div class="mb-3 ml-3">
                 <label for="comment" class="form-label">Comments</label>
                 <textarea class="form-control" id="comment" rows="5"></textarea>

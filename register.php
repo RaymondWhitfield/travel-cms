@@ -93,6 +93,18 @@ color:#1d978d;
 			</div>
 			<div class="card-body">
 				<form action="registration.php" method="post">
+				<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fa fa-user"></i></span>
+						</div>
+						<input type="text" class="form-control" name="firstname" placeholder="First Name">
+					</div>
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fa fa-user"></i></span>
+						</div>
+						<input type="text" class="form-control" name="lastname" placeholder="Last Name">
+					</div>
                     <div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fa fa-envelope"></i></span>
@@ -124,6 +136,12 @@ color:#1d978d;
                         if($_GET["error"] == "prepfailed"){
                             echo "<p>Something went wrong, try again.</p>";
                         }
+						else if($_GET["error"] == "emptyfirst"){
+                            echo "<p>First name left blank!</p>";
+                        }
+						else if($_GET["error"] == "emptylast"){
+                            echo "<p>Last name left blank!</p>";
+                        }
                         else if($_GET["error"] == "emptyemail"){
                             echo "<p>Email left blank!</p>";
                         }
@@ -139,6 +157,7 @@ color:#1d978d;
                         else if($_GET["error"] == "none"){
                             echo "<p>Sign up successful!</p>";
                         }
+						
                     }
                     ?>
 				</form>

@@ -1,10 +1,10 @@
 <?php
 
 //Look for empty Registration fields for register.php error handling
-function emptyFields($email,$password1,$password2){
+function emptyFields($firstname, $lastname,$email,$password1,$password2){
     $result;
 
-    if(empty($email) || empty($password1) || empty($password2)){
+    if(empty($firstname) ||empty($lastname) ||empty($email) || empty($password1) || empty($password2)){
         $result = true;
     }
     else{
@@ -80,9 +80,9 @@ function customerExists($conn, $email){
 
 
 /*Creates user, inserts into DB, hashes password*/
-function createUser($conn, $email, $password1){
+function createUser($conn, $email, $password1, $firstname, $lastname){
     //Query with placeholders for Email and Password for user creation
-    $sql = "INSERT INTO customer (Email, Password) VALUES (?, ?);";
+    $sql = "INSERT INTO customer (Email, Password, FirstName, LastName) VALUES (?, ?, ?, ?);";
 
     //Initializes a statement and returns an object for use with mysqli_stmt_prepare
     $stmt = mysqli_stmt_init($conn);
@@ -99,7 +99,7 @@ function createUser($conn, $email, $password1){
     $hashpwd = password_hash($password1, PASSWORD_DEFAULT);
 
     //Binds variables to a prepared statement as parameters
-    mysqli_stmt_bind_param($stmt, "ss", $email, $hashpwd);
+    mysqli_stmt_bind_param($stmt, "ssss", $email, $hashpwd,$firstname, $lastname);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
 
@@ -143,6 +143,7 @@ function loginUser($conn, $email, $loginPW){
     else if($verifyhashPW === true){
         session_start();
         $_SESSION["Email"] = $customerExists["Email"];
+        $_SESSION["FirstName"] = $customerExists["FirstName"];
         header("location: index.php");
         exit();
     }

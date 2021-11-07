@@ -10,6 +10,8 @@
     }
 
     if(isset($_POST["submit"])){
+        $firstname = $_POST["firstname"];
+        $lastname = $_POST["lastname"];
         $email = $_POST["email"];
         $password1 = $_POST["password1"];
         $password2 = $_POST["password2"];
@@ -17,7 +19,7 @@
         require_once 'functions.php';
 
 
-        if(emptyFields($email,$password1,$password2) !== false){
+        if(emptyFields($firstname, $lastname,$email,$password1,$password2) !== false){
             header("location: register.php?error=emptyfields");
             exit();
         }
@@ -37,7 +39,7 @@
             exit();
         }
 
-        createUser($conn, $email, $password1);
+        createUser($conn, $email, $password1, $firstname, $lastname);
 
 
     }

@@ -20,7 +20,7 @@
 		<!-- 
 			* Linking Polar Lights project specific CSS file 
 		-->
-		<link rel="stylesheet" href="style.css" type="text/css">
+		<!-- <link rel="stylesheet" href="style.css" type="text/css"> -->
 		<link id="active-stylesheet" href="" rel="stylesheet" type="text/css"/>
 
 		

@@ -12,9 +12,9 @@ session_start();
 			<a class = "navbar-brand" href="index.php">POLAR LIGHTS</a>
 			<?php
 				
-				if(isset($_SESSION["Email"])){
-					$email = $_SESSION["Email"];
-					echo "<li>Welcome back, $email </li>";
+				if(isset($_SESSION["FirstName"])){
+					$name = $_SESSION["FirstName"];
+					echo "<li>Welcome back, $name </li>";
 				}
 			?>
 			<div>
