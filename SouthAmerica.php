@@ -1,3 +1,16 @@
+<?php
+	/*
+	 * The include statement takes all the variables from the init.php file and copies it into this file
+	 * We do this so that the database configuration variables are defined only in one file
+	 */
+	include "init.php";
+
+	/*
+	 * Store current page
+	 */
+	$_SESSION["currentPage"]="SouthAmerica.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +26,6 @@
 	<!-- Linking Polar Lights project specific CSS file -->
 	<link id = "style" rel="stylesheet" href="style.css">
 	<link id="active-stylesheet" href="" rel="stylesheet" type="text/css"/>
-	
 </head>
 <body>
 
@@ -212,7 +224,7 @@
 		<div id="modalCaption"></div>
 		<!-- Previous and next buttons -->
 		<a class="prev" onclick="prevImage()" title="Previous image">&#10094;</a>
-	    <a class="next" onclick="nextImage()" title="Next image">&#10095;</a>
+		<a class="next" onclick="nextImage()" title="Next image">&#10095;</a>
 	</div>
 
 	<!-- Page footer -->
