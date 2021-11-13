@@ -1,3 +1,16 @@
+<?php
+	/*
+	 * The include statement takes all the variables from the init.php file and copies it into this file
+	 * We do this so that the database configuration variables are defined only in one file
+	 */
+	include "init.php";
+
+	/*
+	 * Store current page
+	 */
+	$_SESSION["currentPage"]="About.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,15 +26,12 @@
 	<!-- Linking Polar Lights project specific CSS file -->
 	<link id = "style" rel="stylesheet" href="style.css">
 	<link id="active-stylesheet" href="" rel="stylesheet" type="text/css"/>
-	
-	
 </head>
 <body>
 	
 	<?php
 		include_once "navbar.php";
 	?>
-
 
 	<!-- Container for main body -->
 	<div class="container container-body contact-section">
