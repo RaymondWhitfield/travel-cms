@@ -29,7 +29,6 @@
     $title = "";
     $comments = "";
     $rating = "";
-    $valuesSelected = false;
     $errorMsg = "";
     $successMsg = "";
 
@@ -45,11 +44,6 @@
         $title = isset($_POST["title"]) ? $_POST["title"] : "";
         $comments = isset($_POST["comments"]) ? $_POST["comments"] : "";
         $rating = isset($_POST["rating"])? $_POST["rating"]: 5;
-
-        /*if (!empty($title) || !empty($comments))
-        {
-            $valuesSelected = true;
-        }*/
 
         /*
          * Check if the review exists for the current booking ID in the database
@@ -76,6 +70,11 @@
         else {
             $errorMsg = "Review exists for the selected booking number.";
         }
+
+        $bookingId = "";
+        $title = "";
+        $comments = "";
+        $rating = "";
 
         /*
         * Unset the submit flag
@@ -211,7 +210,7 @@
             </div>
 
             <!-- Display success/error message -->
-            <div class="pt-2 pb-2">
+            <div class="pt-2 pb-2 ml-3">
                 <?php 
                 if ($successMsg != "") {
                     echo "<div class='alert alert-success' role='alert'>$successMsg</div>";
