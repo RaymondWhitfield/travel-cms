@@ -18,7 +18,6 @@
 
         require_once 'functions.php';
 
-
         if(emptyFields($firstname, $lastname,$email,$password1,$password2) !== false){
             header("location: register.php?error=emptyfields");
             exit();
@@ -41,12 +40,9 @@
 
         createUser($conn, $email, $password1, $firstname, $lastname);
 
-
     }
     else{
         header("location:register.php");
     }
-    
-
     
 ?>
