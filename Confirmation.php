@@ -4,7 +4,9 @@
 	if (isset($_GET["confirmationId"])) {
 		$confirmationId = $_GET["confirmationId"];
 	}
-
+	else {
+		header("location: index.php");
+	}
 ?>
 
 <!DOCTYPE html>
@@ -22,8 +24,6 @@
 	<!-- Linking Polar Lights project specific CSS file -->
 	<link id = "style" rel="stylesheet" href="style.css">
 	<link id="active-stylesheet" href="" rel="stylesheet" type="text/css"/>
-	
-	
 </head>
 <body>
 	
