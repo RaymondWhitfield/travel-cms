@@ -19,7 +19,7 @@
 		<!-- 
 			* Linking Polar Lights project specific CSS file 
 		-->
-		<!-- <link id = "style" rel="stylesheet" href="style.css"> -->
+		<link id = "style" rel="stylesheet" href="style.css">
         <link id="active-stylesheet" href="" rel="stylesheet" type="text/css"/>
         <style>
             .star-input {
@@ -47,7 +47,8 @@
                 form.addEventListener('submit', event => {
                     const formData = new FormData(event.target);
                     const rating = formData.get('rating');
-                   
+                    console.log(rating);
+                    event.preventDefault();
             });
         });
         </script>
@@ -67,7 +68,7 @@
     <div class="container container-body container-main mb-5">
         <!--User Reviews Form-->
 
-        <form action="Reviews.php" method="post" class="mt-5" id="reviewForm">
+        <form class="mt-5"id="reviewForm">
 
             <!--Div that contains star ratings with values 1 - 5 -->
 
@@ -114,129 +115,88 @@
                 </select>
             </div>
 
+            
             <div class="mb-3 ml-3">
-                <label for="title" class="form-label">Title</label>
-                <input type="text" class="form-control" name="title" id="title" placeholder="Review Title">
+                <label for="firstName" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="firstName" placeholder="First Name">
+            </div>
+            <div class="mb-3 ml-3">
+                <label for="lastName" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="lastName" placeholder="Last Name">
+            </div>
+            <div class="mb-3 ml-3">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" class="form-control" id="email" placeholder="name@email.com">
+            </div>
+            <div class="mb-3 ml-3">
+                <label for="date" class="form-label">Date of Trip</label>
+                <input type="date" class="form-control" id="date" placeholder="Date of Trip">
             </div>
             <div class="mb-3 ml-3">
                 <label for="comment" class="form-label">Comments</label>
-                <textarea class="form-control" name="comments" id="comment" rows="5"></textarea>
+                <textarea class="form-control" id="comment" rows="5"></textarea>
             </div>
 
-            <div class="btn-group-justified mb-3 ml-3">
+            <div class="btn-group-justified">
                 <input class="btn btn-primary" type="submit" value="Submit">
                 <input class="btn btn-primary" type="reset" value="Reset">
               </div>
                     
         </form>
-        </div>
-<!--Area to display user submitted reviews,
+
+        <!--Area to display user submitted reviews,
             fetch data from database to display dynamically-->
-            <?php
-            include "init.php";
-
-            /*
-            * Establish the database connection
-            */
-            $conn = new mysqli($serverName, $userName, $password, $dbName);
-            if ($conn -> connect_error) {
-                die("Connection failed: " . $conn -> connect_error);
-            }
-
-            $title = "";
-            $comments = "";
-            $rating = "";
-            $valuesSelected = false;
-
-
-            /*
-            * If the form was submitted $_POST["Submit"] will be set
-            */
-            if (isset($_POST["submit"])) {
-                /*
-                * Set local variables to the form input values
-                */
-                $title = isset($_POST["title"]) ? $_POST["title"] : "";
-                $comments = isset($_POST["comments"]) ? $_POST["comments"] : "";
-                $rating = isset($_POST["rating"])? $_POST["rating"]: 5;
-
-                if (!empty($title) || !empty($comments))
-                {
-                    $valuesSelected = true;
-                }
-
-                /*
-                * Unset the submit flag
-                */
-                unset($_POST['submit']);
-            }
+        <div>
             
-            //require_once 'functions.php';
-            /*Insert Reviews */
-            //$bookingID = "SELECT BookingID FROM booking JOIN customer ON booking.CustomerID=customer.CustomerID WHERE BookingID=1;";
-            //submitReview($conn, $bookingID, $title, $comments, $rating)
 
+        </div>
+    </div>
+    <div class="container mt-5 mb-5">
+        <!-- <div>
+            <h3>Reviews will be dynamically displayed here, below the form.</h3>
+        </div>
+        <div>
+            <h3>Also, we could provide users a way to search or filter reviews
+                on criteria like stars, trip, date, etc.
+            </h3>
+        </div>
+        <div>
+            <h3>The landing page could run a slideshow of all these reviews</h3>
+        </div> -->
 
-?>
-
-<?php
-        include "init.php";
-
-        /*
-        * Establish the database connection
-        */
-        $conn = new mysqli($serverName, $userName, $password, $dbName);
-        if ($conn -> connect_error) {
-            die("Connection failed: " . $conn -> connect_error);
-        }
-            /*Display Reviews Dynamically*/
-
-            $sql = "SELECT ReviewDate, Title, Comments, Rating FROM review;";
-            $result = $conn -> query($sql);
-            if($result -> num_rows > 0){
-                while($row = $result -> fetch_assoc()){
-                    $rating = $row["Rating"];
-                    $date = $row["ReviewDate"];
-                    $title = $row["Title"];
-                    $comments = $row["Comments"];
-                    
-
-            
-                    echo"<div class='container col-md-6 '>";
-
-                        echo "<div class='card-deck mt-5 mb-5'>";
-
-                            echo"<div class='card'>";
-                                echo"<img class='card-img-top' src='img/Europe/Iceland1.jpg' alt='Card image cap'>";
-
-                                echo"<div class='card-body h-50'>";
-                                    echo"<h5 class='card-title'> $title</h5>";
-                                    echo"<h6 class='card-title'>User Rating: $rating out of 5</h6>";
-                                    echo"<p class='card-text'> $comments</p>";
-                                echo"</div>";
-
-                                echo "<div class='card-footer'>";
-                                    echo"<small class='text-muted'>Review Posted: $date</small>";
-                                    echo"</div>";
-
-                            echo"</div>";
-
-                        echo"</div>";
-                    echo"</div>";
-
-
-                }
-            }
-
-
-    
-
-            ?>
-        
-    
-        
-
-
+        <div class="card-deck">
+            <div class="card">
+              <img class="card-img-top" src="img/Europe/Iceland1.jpg" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Our Trip to Iceland</h5>
+                <p class="card-text">This is what we thought about Iceland and the polar lights.</p>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">Last updated 3 mins ago</small>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="img/Antarctica/Antarctica1.jpg" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Antartica is beautiful this time of year</h5>
+                <p class="card-text">We loved our trip to Antartica. Don't forget to pack several layers of clothing. It was a truly unforgettable experience.</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Last updated 3 mins ago</small>
+                  </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="img//SouthAmerica/Argentina1.jpg" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Argentina is a magical place to see the auroras.</h5>
+                <p class="card-text">We loved our trip to Argentina. Can't say enough about our experience with Polar Lights booking agency.</p>              
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Last updated 3 mins ago</small>
+                  </div>
+            </div>
+          </div>
+        </div>
 
         <!-- 
 		* Page footer 

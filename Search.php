@@ -122,7 +122,7 @@
 					</select>
 				</div>
 				<div class="form-group col-md-4">
-					<input type="submit" value="Search Packages" name="Submit" class="btn btn-outline-primary btn-sm form-control">
+					<input type="submit" value="Search Packages" name="Submit" class="btn btn-primary btn-sm form-control">
 				</div>
 			</div>
 		</form>

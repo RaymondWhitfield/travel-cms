@@ -1,6 +1,4 @@
-<?php
-session_start();
-?>
+
 <!-- 
 		* Navigation bar using Bootstrap's in-built navigation section 
 	-->
@@ -14,7 +12,7 @@ session_start();
 				
 				if(isset($_SESSION["FirstName"])){
 					$name = $_SESSION["FirstName"];
-					echo "<li>Welcome back, $name </li>";
+					echo "<li>Welcome back, $email </li>";
 				}
 			?>
 			<div>
