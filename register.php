@@ -20,57 +20,63 @@
 */
 
 html,body{
-
-background-size: cover;
-background-repeat: no-repeat;
-height: 100%;
-
+	background-size: cover;
+	height: 100%;
 }
 
 .container{
-height: 100%;
-align-content: center;
+	height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .card{
-height: 38%;
-margin-top: auto;
-margin-bottom: auto;
-width: 60%;
-background-color: rgba(0,0,0,0.5) !important;
+	min-height: 50%;
+	margin-top: auto;
+	margin-bottom: auto;
+	width: 60%;
+	background-color: rgba(0,0,0,0.5);
 }
 
+
 .card-header h3{
-color: white;
+	color: white;
+}
+
+form{
+	min-height: 30%;
+	margin-top: auto;
+	margin-bottom: auto;
 }
 
 .input-group-prepend span{
-width: 50px;
-background-color: #1d978d;
-color: black;
-border:1 !important;
+	width: 50px;
+	background-color: #1d978d;
+	color: black;
+	border:1 !important;
 }
 
 .login_btn{
-color: black;
-background-color: #1d978d;
-width: 100px;
+	color: black;
+	background-color: #1d978d;
+	width: 100px;
 }
 
 .login_btn:hover{
-color: black;
-background-color: white;
+	color: black;
+	background-color: white;
 }
 
 .links{
-color: white;
+	color: white;
 }
 
 .links a{
-margin-left: 8px;
-text-decoration: none;
-font-size: 15px;
-color:#1d978d;
+	margin-left: 8px;
+	text-decoration: none;
+	font-size: 15px;
+	color:#1d978d;
 
 }
     </style>
@@ -85,8 +91,8 @@ color:#1d978d;
 	?>
 
 
-<div class="container">
-	<div class="d-flex justify-content-center h-100">
+<div class="container container-body">
+
 		<div class="card">
 			<div class="card-header">
 				<h3>Register</h3>
@@ -168,7 +174,7 @@ color:#1d978d;
 				</div>
 			</div>
 		</div>
-	</div>
+
 </div>
 
 

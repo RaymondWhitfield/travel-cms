@@ -241,10 +241,8 @@
   
   /* CSS class for page footer */
   footer {
-    background: linear-gradient(90deg, rgba(81,116,156,1) 0%, rgba(134,155,178,1) 55%, rgba(190,195,201,1) 100%);
-    /*background-image: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 32%, rgb(0, 87, 168) 100%);*/
-    /*background: #000000 !important;*/
-    opacity: 1;
+    background: #000000 !important;
+    opacity: 0.8;
   }
   
   /* CSS class for page footer heading */
@@ -487,4 +485,11 @@
   .dropdownDiv:hover .dropdown-content {
     display: block;
   }
-  
+
+  /*Reviews Page Card text*/
+  .card-text{
+    color:black;
+  }
+  .card-title{
+    color:black;
+  }

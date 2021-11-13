@@ -148,3 +148,28 @@ function loginUser($conn, $email, $loginPW){
         exit();
     }
 }
+
+/*Inserts review into DB*/
+function submitReview($conn, $bookingID, $title, $comments, $rating){
+    //Query with placeholders for Email and Password for user creation
+    $sql = "INSERT INTO review (BookingID, Title, Comments, Rating) VALUES (?, ?, ?, ?);";
+
+    //Initializes a statement and returns an object for use with mysqli_stmt_prepare
+    $stmt = mysqli_stmt_init($conn);
+
+    //Prepares an SQL statement for execution
+    if(!mysqli_stmt_prepare($stmt, $sql)){
+
+        //If something goes wrong, go here
+        header("location: register.php?error=prepfailed");
+            exit();
+    }
+
+    //Binds variables to a prepared statement as parameters
+    mysqli_stmt_bind_param($stmt, "issi", $bookingID,$title, $comments,$rating);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+
+    //header("location: Reviews.php");
+    exit();
+}
