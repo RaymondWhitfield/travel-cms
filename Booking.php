@@ -6,6 +6,13 @@
 	include "init.php";
 
 	/*
+	 * Check if the ID is populated in the session using the Login.php page
+	 */
+	if(empty($_SESSION["Id"])) {
+	  header("Location:login.php");
+	}
+
+	/*
 	 * Establish the database connection
 	 */
 	$conn = new mysqli($serverName, $userName, $password, $dbName);
@@ -29,6 +36,9 @@
 			$packageStartDate = $row["StartDate"];
 			$packageEndDate = $row["EndDate"];
 		}
+	}
+	else {
+		header("location: Search.php");
 	}
 
 	$fromDate = "";
@@ -109,7 +119,6 @@
 	<!-- Linking Polar Lights project specific CSS file -->
 	<link id = "style" rel="stylesheet" href="style.css">
 	<link id="active-stylesheet" href="" rel="stylesheet" type="text/css"/>
-
 </head>
 <body>
 
