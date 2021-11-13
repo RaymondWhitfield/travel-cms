@@ -1,3 +1,11 @@
+<?php
+	/*
+	 * The include statement takes all the variables from the init.php file and copies it into this file
+	 * We do this so that the database configuration variables are defined only in one file
+	 */
+	include "init.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,75 +22,66 @@
 	<link id = "style" rel="stylesheet" href="style.css">
 	<link id="active-stylesheet" href="" rel="stylesheet" type="text/css"/>
 
-    <style>
-        /*
- * Login Page
-*/
+	<style>
+	html,body{
+		background-size: cover;
+		height: 100%;
+	}
 
-html,body{
-	background-size: cover;
-	height: 100%;
-}
+	.container{
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
 
-.container{
-	height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+	.card{
+		min-height: 50%;
+		margin-top: auto;
+		margin-bottom: auto;
+		width: 60%;
+		background-color: rgba(0,0,0,0.5);
+	}
 
-.card{
-	min-height: 50%;
-	margin-top: auto;
-	margin-bottom: auto;
-	width: 60%;
-	background-color: rgba(0,0,0,0.5);
-}
+	.card-header h3{
+		color: white;
+	}
 
+	form{
+		min-height: 30%;
+		margin-top: auto;
+		margin-bottom: auto;
+	}
 
-.card-header h3{
-	color: white;
-}
+	.input-group-prepend span{
+		width: 50px;
+		background-color: #1d978d;
+		color: black;
+		border:1 !important;
+	}
 
-form{
-	min-height: 30%;
-	margin-top: auto;
-	margin-bottom: auto;
-}
+	.login_btn{
+		color: black;
+		background-color: #1d978d;
+		width: 100px;
+	}
 
-.input-group-prepend span{
-	width: 50px;
-	background-color: #1d978d;
-	color: black;
-	border:1 !important;
-}
+	.login_btn:hover{
+		color: black;
+		background-color: white;
+	}
 
-.login_btn{
-	color: black;
-	background-color: #1d978d;
-	width: 100px;
-}
+	.links{
+		color: white;
+	}
 
-.login_btn:hover{
-	color: black;
-	background-color: white;
-}
-
-.links{
-	color: white;
-}
-
-.links a{
-	margin-left: 8px;
-	text-decoration: none;
-	font-size: 15px;
-	color:#1d978d;
-
-}
-    </style>
-    
-	
-	
+	.links a{
+		margin-left: 8px;
+		text-decoration: none;
+		font-size: 15px;
+		color:#1d978d;
+	}
+	</style>	
 </head>
 <body>
 	
@@ -90,8 +89,7 @@ form{
 		include_once "navbar.php";
 	?>
 
-
-<div class="container container-body">
+	<div class="container container-body">
 
 		<div class="card">
 			<div class="card-header">
@@ -175,12 +173,7 @@ form{
 			</div>
 		</div>
 
-</div>
-
-
-
-
-
+	</div>
 
 	<!-- Page footer -->
 	<?php
