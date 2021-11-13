@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 07, 2021 at 09:45 PM
+-- Generation Time: Nov 13, 2021 at 04:05 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.0
 
@@ -46,6 +46,14 @@ CREATE TABLE `booking` (
   `ExpDate` varchar(5) NOT NULL,
   `CVVNumber` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `booking`
+--
+
+INSERT INTO `booking` (`BookingID`, `PackageID`, `CustomerID`, `FromDate`, `ToDate`, `NumOfTravellers`, `FirstName`, `LastName`, `Address`, `City`, `State`, `Zip`, `Email`, `Phone`, `CreditCard`, `ExpDate`, `CVVNumber`) VALUES
+(1, 1, 14, '2021-11-07', '2021-11-10', 2, 'Test', 'Dummy', '123 Main St', 'Madison', 'WI', 53718, 'test12@myemail.com', '555-555-5555', '1234567890123456', '05/99', 111),
+(2, 4, 10, '2021-11-08', '2021-11-11', 3, 'Testing', 'Inserts', '321 Habberdasher Lane', 'Madison', 'WI', 53718, 'test10@myemail.com', '555-555-5550', '1234123412341234', '05/22', 0);
 
 -- --------------------------------------------------------
 
@@ -131,13 +139,19 @@ INSERT INTO `package` (`PackageID`, `DestinationID`, `ThemeID`, `StartDate`, `En
 CREATE TABLE `review` (
   `ReviewID` int(11) NOT NULL,
   `BookingID` int(11) NOT NULL,
-  `FirstName` varchar(50) NOT NULL,
-  `LastName` varchar(50) NOT NULL,
-  `Email` varchar(50) NOT NULL,
-  `ReviewDate` date NOT NULL,
+  `ReviewDate` datetime NOT NULL DEFAULT current_timestamp(),
   `Rating` int(11) NOT NULL,
-  `Comment` varchar(500) NOT NULL
+  `Title` varchar(255) NOT NULL,
+  `Comments` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `review`
+--
+
+INSERT INTO `review` (`ReviewID`, `BookingID`, `ReviewDate`, `Rating`, `Title`, `Comments`) VALUES
+(29, 2, '0000-00-00 00:00:00', 5, 'Our Trip To Iceland', 'This is what we thought about Iceland and the polar lights.'),
+(30, 1, '0000-00-00 00:00:00', 5, 'Antartica is beautiful this time of year', 'We loved our trip to Antartica. Don\'t forget to pack several layers of clothing. It was a truly unforgettable experience.');
 
 -- --------------------------------------------------------
 
@@ -214,7 +228,7 @@ ALTER TABLE `theme`
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `BookingID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `BookingID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `customer`
@@ -238,7 +252,7 @@ ALTER TABLE `package`
 -- AUTO_INCREMENT for table `review`
 --
 ALTER TABLE `review`
-  MODIFY `ReviewID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ReviewID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `theme`
