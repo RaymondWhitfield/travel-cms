@@ -142,6 +142,7 @@ function loginUser($conn, $email, $loginPW){
     }
     else if($verifyhashPW === true){
         session_start();
+        $_SESSION["Id"] = $customerExists["CustomerID"];
         $_SESSION["Email"] = $customerExists["Email"];
         $_SESSION["FirstName"] = $customerExists["FirstName"];
         header("location: index.php");
