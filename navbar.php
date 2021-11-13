@@ -12,7 +12,7 @@
 				
 				if(isset($_SESSION["FirstName"])){
 					$name = $_SESSION["FirstName"];
-					echo "<li>Welcome back, $email </li>";
+					echo "<li>Welcome back, $name </li>";
 				}
 			?>
 			<div>
