@@ -74,16 +74,17 @@
 		$creditCard = $_POST['creditcard'];
 		$expDate = $_POST['expdate'];
 		$cvvNumber = $_POST['cvv'];
+		$customerId = $_SESSION['Id'];
 
 		$sql = "INSERT INTO booking (PackageID, CustomerID, FromDate, ToDate, NumOfTravellers, FirstName, LastName, Address, City, State, Zip, Email, Phone, CreditCard, ExpDate, CVVNumber) 
-			VALUES ('$packageId', '1', '$fromDate', '$toDate', '$numOfTravellers', '$firstName', '$lastName', '$address', '$city', '$state', '$zip', '$email', '$phone', '$creditCard', '$expDate', '$cvvNumber')";
+			VALUES ('$packageId', '$customerId', '$fromDate', '$toDate', '$numOfTravellers', '$firstName', '$lastName', '$address', '$city', '$state', '$zip', '$email', '$phone', '$creditCard', '$expDate', '$cvvNumber')";
 
 		if ($conn -> query($sql)) {
 			$last_id = $conn -> insert_id;
 			header("Location:Confirmation.php?confirmationId=" . $last_id);
 		}
 		else {
-			echo "Error adding work order information. " . $conn -> error;;
+			echo "Error creating booking. " . $conn -> error;
 		}
 
 		$fromDate = "";
