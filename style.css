@@ -482,4 +482,26 @@ footer a span{
 .dropdownDiv:hover .dropdown-content {
   display: block;
 }
+/*Navbar Links*/
+.nav-link{
+  font-size: 0.8rem;
+}
+/*Welcome Message inside Navbar*/
+#welcomemsg{
+  list-style-type:none;
+  font-size:14px;
+  color:white;
+}
 
+/*CONTINENTS NAVBAR */
+.dropdown-menu{
+  background-color: #000000;
+}
+.dropdown-item{
+  font-size: 0.8rem;
+}
+
+.dropdown-menu :hover{
+  background-color: white;
+  color:black;
+}
