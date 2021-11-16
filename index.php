@@ -101,7 +101,7 @@
 				* Div to center the content using Bootstrap class 
 			-->
 			<div class="row justify-content-center">
-				<div class="col-md-7 heading-section text-center">
+				<div class="col-md-12 heading-section text-center">
 					<h3 class="p-2 blogTitle mb-2">Travel Blogs</h3>
 					<p class="mb-3">Glean through fellow enthusiasts' experiences, advice, and suggestions to catch the magnificence of the polar lights in person.</p>
 				</div>
@@ -156,6 +156,67 @@
 		</div>
 	</div>
 
+	
+	<?php		
+//<!--Carousel for Customer Reviews-->
+echo "<div class='container container-body container-main mt-5'>";
+	echo "<div class='body-section text-justify'>";
+		echo '<div class="col-md-12 heading-section text-center">';
+			echo '<h3 class="p-2 mb-3 subTitles" style="font-size: 30px;">Customer Reviews</h3>';
+		echo"</div>";
+		echo '<div id="carousel" class="carousel slide" data-bs-ride="carousel">';
+		echo "<div class='carousel-inner'>";
+				
+
+        $conn = new mysqli($serverName, $userName, $password, $dbName);
+        if ($conn -> connect_error) {
+            die("Connection failed: " . $conn -> connect_error);
+        }
+		$images = array("Gallery1.png", "Gallery2.png", "Gallery3.png", "Gallery4.png", "Gallery5.png", "Gallery6.png","Gallery7.png", "Gallery8.png", "Gallery9.png");
+
+
+            $sql = "SELECT ReviewID, Rating, Title, Comments FROM review ORDER BY ReviewID ASC;";
+            $result = $conn -> query($sql);
+
+            if($result -> num_rows > 0 ){
+				for($i = 0; $i < count($images); $i++){
+            	while($row = $result -> fetch_assoc()){
+					$id = $row["ReviewID"];
+                    $rating = $row["Rating"];
+                    $title = $row["Title"];
+                    $comments = $row["Comments"];
+
+
+
+					//create a slide, first should be active
+					
+					echo '<div class="carousel  '. $i == 1 ? " item-active" : "" . '">';
+							echo '<img class="d-block w-100" src="img/Gallery/' . $images[$i] . '">';
+							
+							echo "<div class='carousel-caption d-none d-md-block'>";
+								
+								echo "<h5> $title </h5>";
+								echo "<p> $comments </p>";
+								echo "<p> $rating  out of 5 stars!</p>";
+							echo '</div>';
+
+						
+					echo "</div>";
+						break;//Otherwise same image is used over and over
+
+						
+				}
+				}
+			}
+
+
+
+				echo '</div>';
+				echo "</div>";
+				echo "</div>";
+				echo "</div>";
+?>
+
 	<!-- 
 		* Container for Instagram section header 
 	-->
@@ -169,6 +230,9 @@
 			</div>
 		</div>
 	</div>
+
+	
+
 
 	<!-- 
 		* Container for Instagram links
