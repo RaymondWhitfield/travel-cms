@@ -165,7 +165,7 @@ echo "<div class='container container-body container-main mt-5'>";
 			echo '<h3 class="p-2 mb-3 subTitles" style="font-size: 30px;">Customer Reviews</h3>';
 		echo"</div>";
 		echo '<div id="carousel" class="carousel slide" data-bs-ride="carousel">';
-		echo "<div class='carousel-inner'>";
+		
 				
 
         $conn = new mysqli($serverName, $userName, $password, $dbName);
@@ -189,8 +189,8 @@ echo "<div class='container container-body container-main mt-5'>";
 
 
 					//create a slide, first should be active
-					
-					echo '<div class="carousel  '. $i == 1 ? " item-active" : "" . '">';
+					echo "<div class='carousel-inner'>";
+					echo '<div class="carousel-item  '. $i == 0 ? "active" : "" . '">';
 							echo '<img class="d-block w-100" src="img/Gallery/' . $images[$i] . '">';
 							
 							echo "<div class='carousel-caption d-none d-md-block'>";
@@ -200,7 +200,7 @@ echo "<div class='container container-body container-main mt-5'>";
 								echo "<p> $rating  out of 5 stars!</p>";
 							echo '</div>';
 
-						
+							echo '</div>';	
 					echo "</div>";
 						break;//Otherwise same image is used over and over
 
@@ -211,7 +211,7 @@ echo "<div class='container container-body container-main mt-5'>";
 
 
 
-				echo '</div>';
+				
 				echo "</div>";
 				echo "</div>";
 				echo "</div>";
