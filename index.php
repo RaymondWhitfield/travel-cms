@@ -9,6 +9,14 @@
 	 * Store current page
 	 */
 	$_SESSION["currentPage"]="index.php";
+
+	/*
+     * Establish the database connection
+     */
+    $conn = new mysqli($serverName, $userName, $password, $dbName);
+    if ($conn -> connect_error) {
+        die("Connection failed: " . $conn -> connect_error);
+    }
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +28,7 @@
 	-->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 	<!--
 		* Importing Google fonts
@@ -156,66 +164,56 @@
 		</div>
 	</div>
 
-	
-	<?php		
-//<!--Carousel for Customer Reviews-->
-echo "<div class='container container-body container-main mt-5'>";
-	echo "<div class='body-section text-justify'>";
-		echo '<div class="col-md-12 heading-section text-center">';
-			echo '<h3 class="p-2 mb-3 subTitles" style="font-size: 30px;">Customer Reviews</h3>';
-		echo"</div>";
-		echo '<div id="carousel" class="carousel slide" data-bs-ride="carousel">';
-		
-				
+	<?php 
+		$sql = "SELECT Rating, Title, Comments, ReviewDate FROM review ORDER BY ReviewID ASC";
+		$result = $conn -> query($sql);
+		if($result -> num_rows > 0 ) {
+	?>
+			<div class="container container-body container-main mt-5">
+				<div class="body-section pb-0">
+					<div class="row justify-content-center">
+						<div class="col-md-12 heading-section text-center">
+							<h3 class="p-2 mb-3 subTitles" style="font-size: 30px;">Customer Reviews</h3>
+						</div>
 
-        $conn = new mysqli($serverName, $userName, $password, $dbName);
-        if ($conn -> connect_error) {
-            die("Connection failed: " . $conn -> connect_error);
-        }
-		$images = array("Gallery1.png", "Gallery2.png", "Gallery3.png", "Gallery4.png", "Gallery5.png", "Gallery6.png","Gallery7.png", "Gallery8.png", "Gallery9.png");
+						<div id="carousel" class="carousel slide carousel-fade" style="z-index: -1" data-bs-ride="carousel">
+							<div class="carousel-inner">
+								<?php 
+								$cnt = 0;
+								while($row = $result -> fetch_assoc()) {
+									$cnt++;
+									$rating = $row["Rating"];
+									$title = $row["Title"];
+									$comments = $row["Comments"];
+									$date = $row["ReviewDate"];
 
-
-            $sql = "SELECT ReviewID, Rating, Title, Comments FROM review ORDER BY ReviewID ASC;";
-            $result = $conn -> query($sql);
-
-            if($result -> num_rows > 0 ){
-				for($i = 0; $i < count($images); $i++){
-            	while($row = $result -> fetch_assoc()){
-					$id = $row["ReviewID"];
-                    $rating = $row["Rating"];
-                    $title = $row["Title"];
-                    $comments = $row["Comments"];
-
-
-
-					//create a slide, first should be active
-					echo "<div class='carousel-inner'>";
-					echo '<div class="carousel-item  '. $i == 0 ? "active" : "" . '">';
-							echo '<img class="d-block w-100" src="img/Gallery/' . $images[$i] . '">';
-							
-							echo "<div class='carousel-caption d-none d-md-block'>";
-								
-								echo "<h5> $title </h5>";
-								echo "<p> $comments </p>";
-								echo "<p> $rating  out of 5 stars!</p>";
-							echo '</div>';
-
-							echo '</div>';	
-					echo "</div>";
-						break;//Otherwise same image is used over and over
-
-						
-				}
-				}
-			}
-
-
-
-				
-				echo "</div>";
-				echo "</div>";
-				echo "</div>";
-?>
+									if ($cnt == 1) {
+										echo "<div class='carousel-item active'>";
+									}
+									else {
+										echo "<div class='carousel-item'>";
+									}
+									echo "<div class='row justify-content-center'>";
+									echo "<div class='card' style='width: 80%; height:200px'>";
+									echo "<div class='card-body '>";
+									echo "<h5 class='card-title'>$title</h5>";
+									echo "<h6 class='card-subtitle mb-2 text-muted'>Rating: $rating / 5</h6>";
+									echo "<p class='card-text'>\"$comments\"</p>";
+									echo "<p>$date</p>";
+									echo "</div>";
+									echo "</div>";
+									echo "</div>";
+									echo "</div>";
+								}
+								?>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+	<?php 
+		}
+	?>
 
 	<!-- 
 		* Container for Instagram section header 
@@ -230,9 +228,6 @@ echo "<div class='container container-body container-main mt-5'>";
 			</div>
 		</div>
 	</div>
-
-	
-
 
 	<!-- 
 		* Container for Instagram links
