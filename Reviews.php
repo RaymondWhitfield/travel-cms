@@ -235,14 +235,16 @@
         }
             /*Display Reviews Dynamically*/
 
-            $sql = "SELECT ReviewDate, Title, Comments, Rating FROM review;";
+            $sql = "SELECT ReviewDate, Title, Comments, Rating FROM review as R JOIN booking as B ON R.BookingID = B.BookingID
+            JOIN package as P ON P.PackageID = B.PackageID
+            JOIN destination as D on D.DestinationID = P.DestinationID WHERE CustomerID = '" . $_SESSION["Id"] . "'";
             $result = $conn -> query($sql);
             if($result -> num_rows > 0){
                 while($row = $result -> fetch_assoc()){
-                    $rating = $row["Rating"];
-                    $date = $row["ReviewDate"];
-                    $title = $row["Title"];
-                    $comments = $row["Comments"];
+                    $rating = $row['Rating'];
+                    $date = $row['ReviewDate'];
+                    $title = $row['Title'];
+                    $comments = $row['Comments'];
                     
 
             
