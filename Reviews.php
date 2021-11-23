@@ -63,12 +63,38 @@
             if ($conn -> query($sql)) {
                 $successMsg = "Review added successfully.";
             }
+        }
+        
+            //Add this block to allow for updating review Rating, Title, Comments, and current time
+        else if ($result -> num_rows == 1) {
+            $row = $result -> fetch_assoc();
+            $reviewID = $row['ReviewID'];
+            $bookingId = $_POST["trips"];
+            $title = isset($_POST["title"]) ? $_POST["title"] : "";
+            $comments = isset($_POST["comments"]) ? $_POST["comments"] : "";
+            $rating = isset($_POST["rating"])? $_POST["rating"]: 5;
+
+            $sql = "UPDATE review R JOIN booking B ON R.BookingID = B.BookingID
+            SET ReviewDate=CURRENT_TIMESTAMP, Rating='$rating', Title='$title', Comments='$comments'
+            WHERE R.BookingID='$bookingId' AND R.ReviewID = '$reviewID'";
+
+            if ($conn -> query($sql)) {
+                $successMsg = "Review edited successfully.";
+            }
+            else {
+                $errorMsg = "Error editing review." . $conn -> error;
+            }
+            }
+
+    
             else {
                 $errorMsg = "Error adding review." . $conn -> error;
             }
-        }
+        
+    }
+        
         else {
-            $errorMsg = "Review exists for the selected booking number.";
+            $errorMsg = "Review exists for the selected booking number, but you may update your review if you wish.";
         }
 
         $bookingId = "";
@@ -80,8 +106,9 @@
         * Unset the submit flag
         */
         unset($_POST['submit']);
-    }
+    
 ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -179,7 +206,7 @@
                 <select class="custom-select" name="trips" id="trips" required="true">
                     <option value="" disabled selected>Your trips</option>
                     <?php 
-                        $sql = "SELECT B.BookingID, D.Name FROM booking AS B
+                        $sql = "SELECT B.BookingID, D.Name, B.FromDate, B.ToDate FROM booking AS B
                                 JOIN package as P ON P.PackageID = B.PackageID
                                 JOIN destination as D on D.DestinationID = P.DestinationID
                                 WHERE CustomerID = '" . $_SESSION["Id"] . "'";
@@ -188,7 +215,9 @@
                             while($row = $result -> fetch_assoc()) {
                                 $Id = $row["BookingID"];
                                 $destName = $row["Name"];
-                                echo "<option value='$Id'>$Id - $destName</option>";
+                                $from = $row['FromDate'];
+                                $to = $row['ToDate'];
+                                echo "<option value='$Id'>$Id - $destName ($from $to)</option>";
                             }
                         }
                     ?>
