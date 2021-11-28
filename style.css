@@ -37,6 +37,7 @@
 /* CSS class for container body */
 .container-body {
   margin-top : 90px;
+  
 }
 
 /* CSS class for container main section */
@@ -503,5 +504,53 @@ footer a span{
 
 .dropdown-menu :hover{
   background-color: white;
+  color:black;
+}
+
+/*Login/Register Card Form elements*/
+.card{
+  min-height: 50%;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 60%;
+  background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(231,254,197,1) 0%, rgba(145,172,251,1) 90% );
+}
+
+.input-group-prepend span{
+  width: 50px;
+  background-image: linear-gradient(to right, #c2e59c 0%, #64b3f4  51%, #c2e59c  100%);
+  color: black;
+  border:1 !important;
+}
+
+.card-header h3{
+  color: black;
+}
+.card-footer h6{
+  color:black;
+}
+.login_btn{
+  background-image: linear-gradient(to right, #c2e59c 0%, #64b3f4  51%, #c2e59c  100%);
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: black; 
+  font-size: 0.75rem;           
+  box-shadow: 0 0 20px #eee;
+  display: block;
+}
+
+.login_btn:hover{
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+}
+.links{
+  color: black;
+}
+
+.links a{
+  margin-left: 8px;
+  text-decoration: none;
+  font-size: 15px;
   color:black;
 }

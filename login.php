@@ -34,50 +34,10 @@
 		align-items: center;
 	}
 
-	.card{
-		min-height: 50%;
-		margin-top: auto;
-		margin-bottom: auto;
-		width: 60%;
-		background-color: rgba(0,0,0,0.5);
-	}
-
-	.card-header h3{
-		color: white;
-	}
 	form{
 		min-height: 30%;
 		margin-top: auto;
 		margin-bottom: auto;
-	}
-
-	.input-group-prepend span{
-		width: 50px;
-		background-color: #1d978d;
-		color: black;
-		border:1 !important;
-	}
-
-	.login_btn{
-		color: black;
-		background-color: #1d978d;
-		width: 100px;
-	}
-
-	.login_btn:hover{
-		color: black;
-		background-color: white;
-	}
-
-	.links{
-		color: white;
-	}
-
-	.links a{
-		margin-left: 8px;
-		text-decoration: none;
-		font-size: 15px;
-		color:#1d978d;
 	}
 	</style>
 </head>
