@@ -91,11 +91,11 @@
 				* Map areas for each continent 
 			-->
 			<map name="worldmap">
-				<area shape="rect" coords="10,300,170,340" alt="North America" href="NorthAmerica.html">
-				<area shape="rect" coords="55,430,210,465" alt="South America" href="SouthAmerica.html">
-				<area shape="rect" coords="585,45,745,85" alt="Europe" href="Europe.html">
-				<area shape="rect" coords="570,435,725,470" alt="Oceania" href="Oceania.html">
-				<area shape="rect" coords="715,500,870,535" alt="Antarctica" href="Antarctica.html">
+				<area shape="rect" coords="10,300,170,340" alt="North America" href="NorthAmerica.php">
+				<area shape="rect" coords="55,430,210,465" alt="South America" href="SouthAmerica.php">
+				<area shape="rect" coords="585,45,745,85" alt="Europe" href="Europe.php">
+				<area shape="rect" coords="570,435,725,470" alt="Oceania" href="Oceania.php">
+				<area shape="rect" coords="715,500,870,535" alt="Antarctica" href="Antarctica.php">
 			</map>
 		</div>
 	</div> 
