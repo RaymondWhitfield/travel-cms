@@ -146,6 +146,7 @@
         .star-input:checked + .star ~ .star {
         color: grey;
         }
+        
     </style>
 	
 	<!-- 
@@ -286,11 +287,11 @@
 
                                 echo"<div class='card-body h-50'>";
                                     echo"<h5 class='card-title'> $title</h5>";
-                                    echo"<h6 class='card-title'>User Rating: $rating out of 5</h6>";
+                                    echo"<h6 class='card-title'>$rating/5 Stars</h6>";
                                     echo"<p class='card-text'> $comments</p>";
                                 echo"</div>";
 
-                                echo "<div class='card-footer'>";
+                                echo "<div class='card-footer-reviews'>";
                                     echo"<small class='text-muted'>Review Posted: $date</small>";
                                     echo"</div>";
 

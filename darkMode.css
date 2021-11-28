@@ -570,4 +570,16 @@
   background-color: white;
   color:black;
 }
-/*Review Carousel Home Page*/
+/*Reviews Page Cards*/
+
+.card-text{
+  color: white;
+  font-size:large;
+
+}
+.card-title{
+  color:white;
+}
+.text-muted{
+  margin-left:10px;
+}

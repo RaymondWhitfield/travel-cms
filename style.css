@@ -561,3 +561,17 @@ footer a span{
 .card-reviews{
   color:black;
 }
+/*Reviews page Cards*/
+/*Reviews Page Cards*/
+
+.card-text{
+  color: black;
+  font-size:large;
+
+}
+.card-title{
+  color:black;
+}
+.text-muted{
+  margin-left:10px;
+}

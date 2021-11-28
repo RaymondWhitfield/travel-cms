@@ -41,7 +41,6 @@
 					<li><a href="About.php" class="nav-link"><span>ABOUT</span></a></li>
 					<?php
 						if(isset($_SESSION["Email"])){
-							echo "<li class='nav-item'><a href='user.php' class='nav-link'><span>ACCOUNT</span></a></li>";
 							echo "<li class='nav-item'><a href='logout.php' class='nav-link'><span>LOGOUT</span></a></li>";
 						}
 						else{
