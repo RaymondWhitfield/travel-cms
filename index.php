@@ -194,10 +194,10 @@
 										echo "<div class='carousel-item'>";
 									}
 									echo "<div class='row justify-content-center'>";
-									echo "<div class='card' style='width: 80%; height:200px' color:white;>";
-									echo "<div class='card-body '>";
+									echo "<div class='card-reviews' style='width: 80%; height:200px' color:white;>";
+									echo "<div class='card-body'>";
 									echo "<h5 class='card-title'>$title</h5>";
-									echo "<h6 class='card-subtitle mb-2 text-muted'>Rating: $rating / 5</h6>";
+									echo "<h6 class='card-subtitle mb-2'>Rating: $rating / 5</h6>";
 									echo "<p class='card-text'>\"$comments\"</p>";
 									echo "<p>$date</p>";
 									echo "</div>";

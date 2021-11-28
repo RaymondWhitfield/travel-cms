@@ -554,3 +554,10 @@ footer a span{
   font-size: 15px;
   color:black;
 }
+/*Index page carousel reviews*/
+.carousel-item{
+  background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(250,255,240,1) 0%, rgba(226,232,251,1) 90% );
+}
+.card-reviews{
+  color:black;
+}

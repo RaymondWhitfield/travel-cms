@@ -69,7 +69,6 @@
    */
   .blog-section {
     background: linear-gradient(90deg, rgba(81,116,156,1) 0%, rgba(134,155,178,1) 55%, rgba(190,195,201,1) 100%);
-    /*background-image: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 32%, rgb(0, 87, 168) 100%);*/
   }
   
   /* CSS class for blog section images */
@@ -528,7 +527,7 @@
 		margin-left: 8px;
 		text-decoration: none;
 		font-size: 15px;
-		color:black;
+		color:white;
 	}
   /*Reviews Page Card text*/
   .card-text{
@@ -537,6 +536,14 @@
   .card-title{
     color:white;
   }
+
+/*Index page carousel reviews*/
+.carousel-item{
+  background: linear-gradient(90deg, rgba(81,116,156,1) 0%, rgba(134,155,178,1) 55%, rgba(190,195,201,1) 100%);
+}
+.card-reviews{
+  color:white;
+}
   
 
 /*Navbar Links*/
