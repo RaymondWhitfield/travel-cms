@@ -35,6 +35,53 @@ function launchBooking() {
 	$("#bookPackage").submit();
 }
 
+function checkDate() {
+	var fromDate = $("#fromDate").val();
+	var toDate = $("#toDate").val();
+
+	if (fromDate && toDate) 
+	{
+		if (toDate < fromDate) 
+		{
+			$("#fromDate").addClass("is-invalid");
+			$("#toDate").addClass("is-invalid");
+
+			setTimeout(function () {
+				$("#fromDate").removeClass('is-invalid');
+				$("#toDate").removeClass("is-invalid");
+			}, 2000);
+			
+			return false;
+		}
+		else {
+			return true;
+		}
+	}
+
+	return false;
+}
+
+function calculateCost(perDayCost) {
+	var fromDate = $("#fromDate").val().split('-');
+	var toDate = $("#toDate").val().split('-');
+	var numOfPer = $("#numTraveller").val();
+
+	if (!checkDate) {
+		return
+	}
+
+	fromDate = new Date(fromDate[0],fromDate[1],fromDate[2]);
+	toDate = new Date(toDate[0],toDate[1],toDate[2]);
+
+	var diffInTime = toDate.getTime() - fromDate.getTime(); 
+	var diffInDays = diffInTime / (1000 * 3600 * 24);
+
+	if (diffInDays > 0) {
+		var totalCost = numOfPer * diffInDays * perDayCost;
+		$("#cost").val(totalCost);
+	}
+}
+
 /* Function to toggle between light and dark themes*/
 var buttons = document.getElementsByClassName("changeCSS");
 var activeSheet = document.getElementById("active-stylesheet");
