@@ -574,16 +574,20 @@
   background-color: white;
   color:black;
 }
-/*Reviews Page Cards*/
 
+/*Reviews Page Cards*/
 .card-text{
   color: white;
-  font-size:large;
-
 }
+
 .card-title{
   color:white;
 }
+
+.card-body .fa-star {
+  color: green;
+}
+
 .text-muted{
   margin-left:10px;
 }
