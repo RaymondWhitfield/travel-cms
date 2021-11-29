@@ -185,7 +185,6 @@
 									$rating = $row["Rating"];
 									$title = $row["Title"];
 									$comments = $row["Comments"];
-									$date = $row["ReviewDate"];
 
 									if ($cnt == 1) {
 										echo "<div class='carousel-item active'>";
@@ -196,10 +195,11 @@
 									echo "<div class='row justify-content-center'>";
 									echo "<div class='card-reviews' style='width: 80%; height:200px' color:white;>";
 									echo "<div class='card-body'>";
-									echo "<h5 class='card-title'>$title</h5>";
-									echo "<h6 class='card-subtitle mb-2'>Rating: $rating / 5</h6>";
+									echo "<h5 class='card-title mb-3'>$title</h5>";
+									for ($x = 0; $x < $rating; $x++) {
+										echo "<i class='fa fa-star' ></i>";
+									}
 									echo "<p class='card-text'>\"$comments\"</p>";
-									echo "<p>$date</p>";
 									echo "</div>";
 									echo "</div>";
 									echo "</div>";
