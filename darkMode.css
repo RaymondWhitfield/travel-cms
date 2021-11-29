@@ -22,6 +22,10 @@
     font-weight: 500;
     color: #FFFFFF;
   }
+
+  .nav-link span, .dropdown-item span {
+    font-size: 9px;
+  }
   
   /* 
    * CSS class for navigation bar links 
