@@ -153,7 +153,7 @@
 			<div class="form-row">
 				<div class="form-group col-md-6">
 					<label for="numTraveller">No. of travellers</label>
-					<select class="form-control col-md-6" id="numTraveller" name="numTraveller" title="Select the number of travellers on this trip" required="true">
+					<select class="form-control col-md-6" id="numTraveller" name="numTraveller" title="Select the number of travellers on this trip" required="true" onchange="calculateCost(<?php echo $cost ?>)">
 						<option value="" disabled selected>No. of travellers</option>
 						<?php 
 						for ($x = 1; $x <= 10; $x++) {
@@ -161,6 +161,10 @@
 						}
 						?>
 					</select>
+				</div>
+				<div class="form-group col-md-6">
+					<label for="costTraveller">Cost</label>
+					<input type="text" class="form-control" id="cost" name="cost" readonly>
 				</div>
 			</div>
 
