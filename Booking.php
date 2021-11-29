@@ -234,7 +234,7 @@
 
 			<div class="form-row mt-3">
 				<div class="form-group col-md-4">
-					<input type="submit" class="btn btn-outline-primary btn-sm form-control" value="Book It" name="Submit">
+					<input type="submit" class="btn btn-primary btn-sm form-control" value="Book It" name="Submit">
 				</div>
 			</div>
 		</form>
