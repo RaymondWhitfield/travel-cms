@@ -591,3 +591,11 @@
 .text-muted{
   margin-left:10px;
 }
+
+.booking-link {
+  color: orange;
+}
+
+.booking-link:hover {
+  color: darkorange;
+}
