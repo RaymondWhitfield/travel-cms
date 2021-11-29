@@ -36,13 +36,13 @@
      * If the form was submitted $_POST["Submit"] will be set
      */
     if (isset($_POST["Submit"])) {
-        
+
         /*
          * Set local variables to the form input values
          */
         $bookingId = $_POST["trips"];
-        $title = isset($_POST["title"]) ? $_POST["title"] : "";
-        $comments = isset($_POST["comments"]) ? $_POST["comments"] : "";
+        $title = isset($_POST["title"]) ? mysqli_real_escape_string($conn, $_POST["title"]) : "";
+        $comments = isset($_POST["comments"]) ? mysqli_real_escape_string($conn,$_POST["comments"]) : "";
         $rating = isset($_POST["rating"])? $_POST["rating"]: 5;
 
         /*
@@ -63,15 +63,17 @@
             if ($conn -> query($sql)) {
                 $successMsg = "Review added successfully.";
             }
+            else {
+            $errorMsg = "Error adding review." . $conn -> error;
+            }
         }
-        
-            //Add this block to allow for updating review Rating, Title, Comments, and current time
+        //Add this block to allow for updating review Rating, Title, Comments, and current time
         else if ($result -> num_rows == 1) {
             $row = $result -> fetch_assoc();
             $reviewID = $row['ReviewID'];
             $bookingId = $_POST["trips"];
-            $title = isset($_POST["title"]) ? $_POST["title"] : "";
-            $comments = isset($_POST["comments"]) ? $_POST["comments"] : "";
+            $title = isset($_POST["title"]) ? mysqli_real_escape_string($conn, $_POST["title"]) : "";
+            $comments = isset($_POST["comments"]) ? mysqli_real_escape_string($conn,$_POST["comments"]) : "";
             $rating = isset($_POST["rating"])? $_POST["rating"]: 5;
 
             $sql = "UPDATE review R JOIN booking B ON R.BookingID = B.BookingID
@@ -84,29 +86,22 @@
             else {
                 $errorMsg = "Error editing review." . $conn -> error;
             }
-            }
-
-    
-            else {
-                $errorMsg = "Error adding review." . $conn -> error;
-            }
-        
-    }
-        
+        }
         else {
             $errorMsg = "Review exists for the selected booking number, but you may update your review if you wish.";
         }
+    }
 
-        $bookingId = "";
-        $title = "";
-        $comments = "";
-        $rating = "";
+    $bookingId = "";
+    $title = "";
+    $comments = "";
+    $rating = "";
 
-        /*
-        * Unset the submit flag
-        */
-        unset($_POST['submit']);
-    
+    /*
+     * Unset the submit flag
+     */
+    unset($_POST['submit']);
+
 ?>
 
 
@@ -114,24 +109,24 @@
 <html>
 <head><title>Polar Lights | Reviews</title>
     <!-- 
-		* Linking Bootstrap CSS file 
-	-->
+        * Linking Bootstrap CSS file 
+    -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
     <!--
-		* Importing Google fonts
-	-->
-	<style>@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300&display=swap');</style>
-	<style>@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');</style>
-	<style>@import url('https://fonts.googleapis.com/css2?family=Oleo+Script&display=swap');</style>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        * Importing Google fonts
+    -->
+    <style>@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300&display=swap');</style>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');</style>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Oleo+Script&display=swap');</style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
-	<!-- 
-		* Linking Polar Lights project specific CSS file 
-	-->
-	<link id = "style" rel="stylesheet" href="style.css">
+    <!-- 
+        * Linking Polar Lights project specific CSS file 
+    -->
+    <link id = "style" rel="stylesheet" href="style.css">
     <link id="active-stylesheet" href="" rel="stylesheet" type="text/css"/>
     <style>
         .star-input {
@@ -148,10 +143,10 @@
         }
         
     </style>
-	
-	<!-- 
-		* Linking Polar Lights project specific JavaScript file 
-	-->
+    
+    <!-- 
+        * Linking Polar Lights project specific JavaScript file 
+    -->
     <script src="script.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
@@ -304,114 +299,6 @@
                 }
             }
         ?>
-        
-    
-    
-    <?php
-
-    /*
-     * Store current page
-     */
-    $_SESSION["currentPage"]="Reviews.php";
-
-    /*
-     * Check if the ID is populated in the session using the Login.php page
-     */
-    if(empty($_SESSION["Id"])) {
-      header("Location:login.php");
-    }
-
-    /*
-     * Establish the database connection
-     */
-    $conn = new mysqli($serverName, $userName, $password, $dbName);
-    if ($conn -> connect_error) {
-        die("Connection failed: " . $conn -> connect_error);
-    }
-
-    $bookingId = "";
-    $title = "";
-    $comments = "";
-    $rating = "";
-    $errorMsg = "";
-    $successMsg = "";
-
-    /*
-     * If the form was submitted $_POST["Submit"] will be set
-     */
-    if (isset($_POST["Submit"])) {
-        
-        /*
-         * Set local variables to the form input values
-         */
-        $bookingId = $_POST["trips"];
-        $title = isset($_POST["title"]) ? mysqli_real_escape_string($conn, $_POST["title"]) : "";
-        $comments = isset($_POST["comments"]) ? mysqli_real_escape_string($conn,$_POST["comments"]) : "";
-        $rating = isset($_POST["rating"])? $_POST["rating"]: 5;
-
-        /*
-         * Check if the review exists for the current booking ID in the database
-         */
-        $sql = "SELECT * FROM review WHERE BookingID = '$bookingId'";
-        $result = $conn -> query($sql);
-
-        /*
-         * If the review exists, display an error message
-         */
-        if ($result -> num_rows == 0) {
-            /*
-             * Insert review for the booking
-             */
-            $sql = "INSERT INTO review (BookingID, ReviewDate, Rating, Title, Comments) VALUES ('$bookingId', 'CURRENT_TIMESTAMP', '$rating', '$title', '$comments')";
-
-            if ($conn -> query($sql)) {
-                $successMsg = "Review added successfully.";
-            }
-        }
-        
-            //Add this block to allow for updating review Rating, Title, Comments, and current time
-        else if ($result -> num_rows == 1) {
-            $row = $result -> fetch_assoc();
-            $reviewID = $row['ReviewID'];
-            $bookingId = $_POST["trips"];
-            $title = isset($_POST["title"]) ? mysqli_real_escape_string($conn, $_POST["title"]) : "";
-            $comments = isset($_POST["comments"]) ? mysqli_real_escape_string($conn,$_POST["comments"]) : "";
-            $rating = isset($_POST["rating"])? $_POST["rating"]: 5;
-
-            $sql = "UPDATE review R JOIN booking B ON R.BookingID = B.BookingID
-            SET ReviewDate=CURRENT_TIMESTAMP, Rating='$rating', Title='$title', Comments='$comments'
-            WHERE R.BookingID='$bookingId' AND R.ReviewID = '$reviewID'";
-
-            if ($conn -> query($sql)) {
-                $successMsg = "Review edited successfully.";
-            }
-            else {
-                $errorMsg = "Error editing review." . $conn -> error;
-            }
-            }
-
-    
-            else {
-                $errorMsg = "Error adding review." . $conn -> error;
-            }
-        
-    }
-        
-        else {
-            $errorMsg = "Review exists for the selected booking number, but you may update your review if you wish.";
-        }
-
-        $bookingId = "";
-        $title = "";
-        $comments = "";
-        $rating = "";
-
-        /*
-        * Unset the submit flag
-        */
-        unset($_POST['submit']);
-    
-?>
 
     <!-- 
         * Page footer 
