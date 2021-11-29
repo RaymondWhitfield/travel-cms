@@ -271,31 +271,23 @@
                     $title = $row['Title'];
                     $comments = $row['Comments'];
                     
-
-            
-                    echo"<div class='container col-md-6 '>";
-
+                    echo "<div class='container col-md-6 '>";
                         echo "<div class='card-deck mt-5 mb-5'>";
-
-                            echo"<div class='card'>";
-                                echo"<img class='card-img-top' src='img/Europe/Iceland1.jpg' alt='Card image cap'>";
-
-                                echo"<div class='card-body h-50'>";
-                                    echo"<h5 class='card-title'> $title</h5>";
-                                    echo"<h6 class='card-title'>$rating/5 Stars</h6>";
+                            echo "<div class='card'>";
+                                echo "<img class='card-img-top' src='img/Europe/Iceland1.jpg' alt='Card image cap'>";
+                                echo "<div class='card-body h-50'>";
+                                    echo "<h5 class='card-title mb-3'> $title</h5>";
+                                    for ($x = 0; $x < $rating; $x++) {
+                                        echo "<i class='fa fa-star' ></i>";
+                                    }
                                     echo"<p class='card-text'> $comments</p>";
                                 echo"</div>";
-
                                 echo "<div class='card-footer-reviews'>";
-                                    echo"<small class='text-muted'>Review Posted: $date</small>";
-                                    echo"</div>";
-
+                                    echo "<small class='text-muted'>Review Posted: $date</small>";
+                                echo "</div>";
                             echo"</div>";
-
                         echo"</div>";
                     echo"</div>";
-
-
                 }
             }
         ?>
