@@ -137,16 +137,16 @@
 					<table>
 						<?php 
 							if (($destinationId > 0) && ($themeId > 0)) {
-								$sql = "SELECT PackageID, Description, MonthName(Date(StartDate)) AS StartMonth, Day(Date(StartDate)) AS StartDt, MonthName(Date(EndDate)) AS EndMonth, Day(Date(EndDate)) AS EndDt FROM package
+								$sql = "SELECT PackageID, Description, MonthName(Date(StartDate)) AS StartMonth, Day(Date(StartDate)) AS StartDt, MonthName(Date(EndDate)) AS EndMonth, Day(Date(EndDate)) AS EndDt, CostPerPerson FROM package
 										WHERE DestinationID = '$destinationId' AND 
 											  ThemeID = '$themeId'";
 							}
 							else if ($destinationId > 0) {
-								$sql = "SELECT PackageID, Description, MonthName(Date(StartDate)) AS StartMonth, Day(Date(StartDate)) AS StartDt, MonthName(Date(EndDate)) AS EndMonth, Day(Date(EndDate)) AS EndDt FROM package
+								$sql = "SELECT PackageID, Description, MonthName(Date(StartDate)) AS StartMonth, Day(Date(StartDate)) AS StartDt, MonthName(Date(EndDate)) AS EndMonth, Day(Date(EndDate)) AS EndDt, CostPerPerson FROM package
 										WHERE DestinationID = '$destinationId'";
 							}
 							else { 
-								$sql = "SELECT PackageID, Description, MonthName(Date(StartDate)) AS StartMonth, Day(Date(StartDate)) AS StartDt, MonthName(Date(EndDate)) AS EndMonth, Day(Date(EndDate)) AS EndDt FROM package
+								$sql = "SELECT PackageID, Description, MonthName(Date(StartDate)) AS StartMonth, Day(Date(StartDate)) AS StartDt, MonthName(Date(EndDate)) AS EndMonth, Day(Date(EndDate)) AS EndDt, CostPerPerson FROM package
 										WHERE ThemeID = '$themeId'";
 							}
 
@@ -157,6 +157,7 @@
 								echo "<th>Description</th>";
 								echo "<th style='width: 100px;'>Start Date</th>";
 								echo "<th style='width: 100px;'>End Date</th>";
+								echo "<th style='width: 100px;' class='text-right pr-3'>Per Person</th>";
 								echo "<th></th>";
 								echo "</tr>";
 								while($row = $result -> fetch_assoc()) {
@@ -166,11 +167,13 @@
 									$endMonth = $row["EndMonth"];
 									$startDt = $row["StartDt"];
 									$endDt = $row["EndDt"];
+									$cost = $row["CostPerPerson"];
 									echo "<tr>";
 									echo "<td class='displayNone'>$Id</td>";
-									echo "<td class='pb-2'>$desc</td>";
+									echo "<td class='pb-2 pr-3 text-justify'>$desc</td>";
 									echo "<td>$startMonth" . "-" . "$startDt</td>";
 									echo "<td>$endMonth" . "-" . "$endDt</td>";
+									echo "<td class='text-right pr-3'>\$$cost</td>";
 									echo "<td style='width: 100px; valigh:top'><a href='#' onclick='launchBooking()'>Booking link</a></td>";
 									echo "</tr>";
 								}
