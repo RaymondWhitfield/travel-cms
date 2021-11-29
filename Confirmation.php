@@ -43,7 +43,7 @@
 
 				<p class="pt-3">Your booking confirmation number is <?php echo $confirmationId ?>.</p>
 
-				<p>Enjoy for trip!!</p>
+				<p>Enjoy your trip!!</p>
 			</div>
 		</div>
 	</div>
