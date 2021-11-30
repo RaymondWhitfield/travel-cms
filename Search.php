@@ -174,7 +174,7 @@
 									echo "<td>$startMonth" . "-" . "$startDt</td>";
 									echo "<td>$endMonth" . "-" . "$endDt</td>";
 									echo "<td class='text-right pr-3'>\$$cost</td>";
-									echo "<td style='width: 100px; valigh:top'><a href='#' onclick='launchBooking()'>Booking link</a></td>";
+									echo "<td style='width: 100px; valigh:top'><a class='booking-link' href='#' onclick='launchBooking()'>Booking link</a></td>";
 									echo "</tr>";
 								}
 							}
