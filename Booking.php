@@ -20,14 +20,16 @@
 		die("Connection failed: " . $conn -> connect_error);
 	}
 
+	$cost = 0;
 	$packageId = "";
 	$packageStartDate = "";
 	$packageEndDate = "";
 
 	if (isset($_POST["package"])) {
 		$packageId = $_POST["package"];
+		$cost = 
 
-		$sql = "SELECT StartDate, EndDate FROM package
+		$sql = "SELECT StartDate, EndDate, CostPerPerson FROM package
 				WHERE PackageID = '$packageId'";
 
 		$result = $conn -> query($sql);
@@ -35,6 +37,7 @@
 			$row = $result -> fetch_assoc();
 			$packageStartDate = $row["StartDate"];
 			$packageEndDate = $row["EndDate"];
+			$cost = $row["CostPerPerson"];
 		}
 	}
 	else {
@@ -120,6 +123,8 @@
 	<!-- Linking Polar Lights project specific CSS file -->
 	<link id = "style" rel="stylesheet" href="style.css">
 	<link id="active-stylesheet" href="" rel="stylesheet" type="text/css"/>
+	<!-- Linking Polar Lights project specific JavaScript file -->
+	<script src="script.js"></script>
 </head>
 <body>
 
@@ -245,8 +250,5 @@
 	<?php
 		include_once "footer.php";
 	?>
-	
-	<!-- Linking Polar Lights project specific JavaScript file -->
-	<script src="script.js"></script>
 </body>
 </html>
