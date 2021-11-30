@@ -168,7 +168,7 @@
 		<div id="modalCaption"></div>
 		<!-- Previous and next buttons -->
 		<a class="prev" onclick="prevImage()" title="Previous image">&#10094;</a>
-	    <a class="next" onclick="nextImage()" title="Next image">&#10095;</a>
+		<a class="next" onclick="nextImage()" title="Next image">&#10095;</a>
 	</div>
 
 	<!-- Page footer -->
